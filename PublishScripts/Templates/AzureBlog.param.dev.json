@@ -1,0 +1,29 @@
+{
+  "siteName": {
+    "value": "AzureBlogSimple2506"
+  },
+  "hostingPlanName": {
+    "value": "ServicePlan5d197a00-8961"
+  },
+  "siteLocation": {
+    "value": "South Central US"
+  },
+  "sku": {
+    "value": "Shared"
+  },
+  "workerSize": {
+    "value": "0"
+  },
+  "siteMode": {
+    "value": "Limited"
+  },
+  "computeMode": {
+    "value": "0"
+  },
+  "subscriptionId": {
+    "value": "45eeee68-92cf-4c0d-a6d3-a19db9775dc8"
+  },
+  "resourceGroup": {
+    "value": "AlexTestResourceGroup"
+  }
+}

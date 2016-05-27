@@ -1,0 +1,31 @@
+﻿
+@model IEnumerable<AzureBlog.Models.CategoryModel>
+
+@foreach(var category in Model)
+{
+    <h2>Top @category.CategoryName</h2>
+
+
+    <div class="productParent">
+    @foreach (var product in category.Products)
+    {
+        <div class="individualProduct">
+            <h4 class="productTitle">@product.ProductName</h4>
+            <hr />
+            <div class="childRow">
+                <img class="subCatPic" src="@product.ProductImg" height="100" width="100" />
+                <button class="priceBtn btn btn-success">$@product.ProductPrice</button>
+                @if (product.ProductArticle == true)
+                {
+                    <a class="articleBtn btn btn-danger" href="~/Product/Index/@product.ProductId">Read Review</a>
+                }
+
+            </div>
+        </div>
+    }
+    </div>
+}
+
+
+
+

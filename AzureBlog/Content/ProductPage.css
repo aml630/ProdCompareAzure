@@ -1,0 +1,38 @@
+﻿.sidebarProduct {
+    display: inline-flex;
+    width: 100%;
+     border: 1px solid #d1d1d1;
+  box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
+  padding: 11px;
+    margin-top: 10px;
+background-color: #F8F8F8 ;
+}
+
+.sidebarProductPic {
+     height: 35px;
+    width: 35px;
+    border-radius: 80%;
+    box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
+    border: 1px solid #d1d1d1;
+  border: 1px solid #d1d1d1;
+}
+
+.theGoods {
+    color: green;
+}
+
+.theBads {
+    color: indianred;
+}
+
+.theFacts {
+    color: dodgerblue;
+}
+
+.checkOut {
+    width: 100%;
+}
+
+.checkOut p {
+    width: 100%;
+}
