@@ -5,19 +5,16 @@
 </div>
 
 <div class="subCatParent">
-
+    
     @foreach (var category in Model)
     {
 
 
-        <div class="product-box">
+        <a href="~/Category/Index/@category.CategoryId"class="product-box">
             <h2>@category.CategoryName</h2>
             <img class="subCatPic" src="@category.CategoryPic">
 
-            <div class="viewList">
-                <a href="~/Category/Index/@category.CategoryId">ViewList</a>
-            </div>
-        </div>
+        </a>
     }
 
 </div>

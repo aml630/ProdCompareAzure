@@ -5,25 +5,72 @@
 {
     <h2>Top @category.CategoryName</h2>
 
+    if (category.CategoryArticle == false)
+    {
+
 
     <div class="productParent">
     @foreach (var product in category.Products)
     {
-        <div class="individualProduct">
-            <h4 class="productTitle">@product.ProductName</h4>
-            <hr />
-            <div class="childRow">
-                <img class="subCatPic" src="@product.ProductImg" height="100" width="100" />
-                <button class="priceBtn btn btn-success">$@product.ProductPrice</button>
-                @if (product.ProductArticle == true)
-                {
-                    <a class="articleBtn btn btn-danger" href="~/Product/Index/@product.ProductId">Read Review</a>
-                }
+        <a href="@product.ProductLink">
+            <div class="individualProduct">
+                <h2 class="productTitle">@product.ProductName</h2>
+                <hr />
+                <div class="childRow">
+                    <img class="subCatPic" src="@product.ProductImg" height="100" width="100" />
+                    <p class="priceBtn btn btn-success">$@product.ProductPrice</p>
+                    @if (product.ProductArticle == true)
+                    {
+                        <a class="articleBtn btn btn-danger" href="~/Product/Index/@product.ProductId">Read Review</a>
+                    }
 
+                </div>
             </div>
-        </div>
+        </a>
     }
     </div>
+        }
+
+
+    if (category.CategoryArticle == true)
+    {
+        <div class="row">
+            <div class="col-sm-9">
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
+</p>
+            </div>
+            <div class="col-sm-3">
+                <div class="productParent">
+                    @foreach (var product in category.Products)
+                    {
+                        <div class="individualProduct">
+                            <a href="@product.ProductLink"><h4 class="productTitle">@product.ProductName</h4></a>
+                            <hr />
+                            <div class="childRow">
+                                <img class="subCatPicSmall" src="@product.ProductImg" height="100" width="100" />
+                                <a href="@product.ProductLink" class="priceBtnSml btn btn-success">$@product.ProductPrice</a>
+                                @if (product.ProductArticle == true)
+                                {
+                                    <a class="reviewBtnSml btn btn-danger" href="~/Product/Index/@product.ProductId">Read Review</a>
+                                }
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+    }
+
+
+
+
+
+
+
+
 }
 
 

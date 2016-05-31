@@ -191,6 +191,10 @@
     <Compile Include="Migrations\201605272132351_ProductArticleBool.Designer.cs">
       <DependentUpon>201605272132351_ProductArticleBool.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605272151536_CategoryArticleBool.cs" />
+    <Compile Include="Migrations\201605272151536_CategoryArticleBool.Designer.cs">
+      <DependentUpon>201605272151536_CategoryArticleBool.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CategoryModel.cs" />
@@ -288,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605272132351_ProductArticleBool.resx">
       <DependentUpon>201605272132351_ProductArticleBool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605272151536_CategoryArticleBool.resx">
+      <DependentUpon>201605272151536_CategoryArticleBool.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
