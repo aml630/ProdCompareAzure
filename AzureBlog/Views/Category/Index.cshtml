@@ -52,7 +52,7 @@
                                 <a href="@product.ProductLink" class="priceBtnSml btn btn-success">$@product.ProductPrice</a>
                                 @if (product.ProductArticle == true)
                                 {
-                                    <a class="reviewBtnSml btn btn-danger" href="~/Product/Index/@product.ProductId">Read Review</a>
+                                    <a class="reviewBtnSml btn btn-danger" href="~/@category.GenerateSlug()/@product.GenerateSlug()">Read Review</a>
                                 }
 
                             </div>

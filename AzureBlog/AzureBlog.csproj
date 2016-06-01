@@ -267,7 +267,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\Product\_Carousel.cshtml" />
+    <Content Include="Views\Category\_Carousel.cshtml" />
+    <Content Include="Views\Category\Product.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

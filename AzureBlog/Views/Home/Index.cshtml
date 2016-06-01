@@ -8,9 +8,7 @@
     
     @foreach (var category in Model)
     {
-
-
-        <a href="~/Category/Index/@category.CategoryId"class="product-box">
+        <a href="~/@category.GenerateSlug()"class="product-box">
             <h2>@category.CategoryName</h2>
             <img class="subCatPic" src="@category.CategoryPic">
 

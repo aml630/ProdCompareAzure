@@ -12,10 +12,18 @@ namespace AzureBlog.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Category
-        public ActionResult Index(int id)
+        public ActionResult Index(string id)
         {
-            var clickedCategory = db.Categories.Where(x =>x.CategoryId== id).Include(category => category.Products).ToList();
+            var clickedCategory = db.Categories.Where(x =>x.CategoryName== id).Include(category => category.Products).ToList();
             return View(clickedCategory);
+        }
+
+        public ActionResult Product(string id, string productId)
+        {
+        
+            var clickedProduct = db.Products.FirstOrDefault(x => x.ProductName == productId);
+            ViewBag.Products = db.Products.Where(x => x.CategoryId == clickedProduct.CategoryId);
+            return View("Product", clickedProduct);
         }
     }
 }
