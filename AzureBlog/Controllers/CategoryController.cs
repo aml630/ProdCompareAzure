@@ -14,7 +14,7 @@ namespace AzureBlog.Controllers
         // GET: Category
         public ActionResult Index(string id)
         {
-            var clickedCategory = db.Categories.Where(x =>x.CategorySlug== id).Include(category => category.Products).ToList();
+            var clickedCategory = db.Categories.Where(x =>x.CategorySlug== id).Include(category => category.Products).Include(category=>category.Segments).ToList();
             return View(clickedCategory);
         }
 
@@ -41,7 +41,21 @@ namespace AzureBlog.Controllers
 
             db.SaveChanges();
 
-            var clickedCategory = db.Categories.Where(x => x.CategoryId == id).Include(category => category.Products).ToList();
+            var clickedCategory = db.Categories.Where(x => x.CategoryId == id).Include(category => category.Products).Include(category=>category.Segments).ToList();
+            return View("Index", clickedCategory);
+        }
+
+        public ActionResult AddSegment(int id, string Title, string Body)
+        {
+            var newSegment = new SegmentModel();
+            newSegment.CategoryId = id;
+            newSegment.SegmentTitle = Title;
+            newSegment.SegmentBody = Body;
+            db.Segments.Add(newSegment);
+            db.SaveChanges();
+
+
+            var clickedCategory = db.Categories.Where(x => x.CategoryId == id).Include(category => category.Products).Include(category => category.Segments).ToList();
             return View("Index", clickedCategory);
         }
     }

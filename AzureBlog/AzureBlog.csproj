@@ -207,12 +207,21 @@
     <Compile Include="Migrations\201606021744540_categoryPostStuff.Designer.cs">
       <DependentUpon>201606021744540_categoryPostStuff.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606022300018_Segments.cs" />
+    <Compile Include="Migrations\201606022300018_Segments.Designer.cs">
+      <DependentUpon>201606022300018_Segments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606022308376_SegmentsAddToApplicatinDb.cs" />
+    <Compile Include="Migrations\201606022308376_SegmentsAddToApplicatinDb.Designer.cs">
+      <DependentUpon>201606022308376_SegmentsAddToApplicatinDb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\SegmentModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -318,6 +327,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606021744540_categoryPostStuff.resx">
       <DependentUpon>201606021744540_categoryPostStuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606022300018_Segments.resx">
+      <DependentUpon>201606022300018_Segments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606022308376_SegmentsAddToApplicatinDb.resx">
+      <DependentUpon>201606022308376_SegmentsAddToApplicatinDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -37,6 +37,7 @@ namespace AzureBlog.Models
 
 
 
+        public virtual ICollection<SegmentModel> Segments { get; set; }
 
         public virtual ICollection<ProductModel> Products { get; set; }
 

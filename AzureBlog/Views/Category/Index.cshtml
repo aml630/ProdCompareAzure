@@ -22,6 +22,10 @@
                         <a href="#Sec1">@category.Sec1Title</a>
                         <a href="#Sec2">@category.Sec2Title</a>
                         <a href="#Sec3">@category.Sec3Title</a>
+                        @foreach (var segment in category.Segments)
+                        {
+                        <a href="#@segment.SegmentTitle">@segment.SegmentTitle</a>
+                        }
                     </div>
                 </div>
 
@@ -43,6 +47,29 @@
 
                     <p class="bodyText">@category.Sec2Body</p>
                 </div>
+                @foreach (var segment in category.Segments)
+                {
+                    <div class="greyBox">
+                        <h2 id="@segment.SegmentTitle">@segment.SegmentTitle</h2>
+                        <hr />
+
+                        <p class="bodyText">@segment.SegmentBody</p>
+                    </div>
+                }
+                @if (User.IsInRole("Admin"))
+                {
+                <h2>Add New Segment</h2>
+                <form class="addArticle" action="~/Default/Category/AddSegment">
+                    <input name="id" hidden value="@category.CategoryId" />
+                    <hr />
+
+                    <input name="Title" placeholder="Segment Title" />
+                    <hr />
+                    <textarea name="Body" placeholder="Segment Body"></textarea>
+                    <hr />
+                    <button>Add Seg</button>
+                </form>
+                }
                 </div>
 
 
@@ -106,6 +133,7 @@
 
                 <button>Submit</button>
             </form>
+       
 
         }
         <div class="productParent">
