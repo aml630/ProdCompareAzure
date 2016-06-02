@@ -37,7 +37,7 @@
     box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
     padding: 11px;
     margin-top: 10px;
-    background-color: #e6ffff;
+    background-color: #e6e6e6;
 }
 
 .tableOfContents {
@@ -47,12 +47,12 @@
 }
 
 .tableOfContents a {
-    border: 1px solid grey;
-    border-radius: 90%;
+    border: 1px solid #d9d9d9;
+    border-radius: 25px;
     margin: 10px;
     padding: 10px;
-    background-color: #e6ffff;
-    color: black;
+    background-color: #e6e6e6;
+    color: #333333;
     font-weight: bold;
 }
 .greyBox {
@@ -84,7 +84,7 @@
 }
 .addArticle textarea {
     height: 300px;
-    max-width: 1000px;
+    max-width: 800px;
     width: 100%;
     
 }

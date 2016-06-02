@@ -23,14 +23,7 @@ namespace AzureBlog.Models
 
             public string Intro { get; set; }
 
-            public string Sec1Title { get; set; }
-            public string Sec1Body { get; set; }
 
-            public string Sec2Title { get; set; }
-            public string Sec2Body { get; set; }
-
-            public string Sec3Title { get; set; }
-            public string Sec3Body { get; set; }
 
 
 

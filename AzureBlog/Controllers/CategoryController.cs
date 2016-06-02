@@ -31,12 +31,7 @@ namespace AzureBlog.Controllers
             var updateCat = db.Categories.FirstOrDefault(y => y.CategoryId == id);
 
             updateCat.Intro = Intro;
-            updateCat.Sec1Title = Sec1Title;
-            updateCat.Sec1Body = Sec1Body;
-            updateCat.Sec2Title = Sec2Title;
-            updateCat.Sec2Body = Sec2Body;
-            updateCat.Sec3Title = Sec3Title;
-            updateCat.Sec3Body = Sec3Body;
+           
             updateCat.CategoryArticle = true;
 
             db.SaveChanges();
