@@ -17,7 +17,6 @@ namespace AzureBlog.Controllers
 
             return View(catList);
         }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

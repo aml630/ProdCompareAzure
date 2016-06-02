@@ -1,4 +1,11 @@
-﻿.subCatBox {
+﻿.section1 {
+    /*height:100px;*/
+    height: 45%;
+}
+.section2 {
+    /*height: 200px;*/
+}
+.subCatBox {
     /*background: green;*/
    
   width: 200px;
@@ -47,13 +54,17 @@ background-color: #F8F8F8 ;
   padding: 11px;
   margin-top: 10px;
   text-align: center;
-   background-color: #F8F8F8 ;
+  background-color: #F8F8F8 ;
 
 }
 
 .product-box:hover{
   transition-duration: .5s;
   box-shadow: green 0px 3px 12px 1px;
+}
+
+.product-box h2 {
+margin-bottom: 20px;
 }
 
 

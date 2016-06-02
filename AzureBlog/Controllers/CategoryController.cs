@@ -14,14 +14,14 @@ namespace AzureBlog.Controllers
         // GET: Category
         public ActionResult Index(string id)
         {
-            var clickedCategory = db.Categories.Where(x =>x.CategoryName== id).Include(category => category.Products).ToList();
+            var clickedCategory = db.Categories.Where(x =>x.CategorySlug== id).Include(category => category.Products).ToList();
             return View(clickedCategory);
         }
 
         public ActionResult Product(string id, string productId)
         {
         
-            var clickedProduct = db.Products.FirstOrDefault(x => x.ProductName == productId);
+            var clickedProduct = db.Products.FirstOrDefault(x => x.ProductSlug == productId);
             ViewBag.Products = db.Products.Where(x => x.CategoryId == clickedProduct.CategoryId);
             return View("Product", clickedProduct);
         }

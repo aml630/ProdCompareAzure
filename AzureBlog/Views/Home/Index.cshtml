@@ -1,16 +1,21 @@
 ﻿
 @model IEnumerable<AzureBlog.Models.CategoryModel>
 <div class="jumbotron">
-    <h1>StuffTalk</h1>
+    <h1>BuyBabble</h1>
+    <p>Only Buy Products You Know You'll Love</p>
 </div>
 
 <div class="subCatParent">
     
     @foreach (var category in Model)
     {
-        <a href="~/@category.GenerateSlug()"class="product-box">
-            <h2>@category.CategoryName</h2>
-            <img class="subCatPic" src="@category.CategoryPic">
+        <a href="~/@category.CategorySlug"class="product-box">
+            <div class="section1">
+                <h2>@category.CategoryName</h2>
+            </div>
+            <div class="section2">
+                <img class="subCatPic" src="@category.CategoryPic">
+            </div>
 
         </a>
     }

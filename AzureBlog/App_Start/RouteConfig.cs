@@ -15,38 +15,32 @@ namespace AzureBlog
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute(
+                name: "About",
+                url: "About",
+                defaults: new { controller = "Home", action = "About" }
+            );
 
             routes.MapRoute(
               name: "Product",
               url: "{id}/{productId}",
-              defaults: new { controller = "Category", action = "Product" },
-              constraints: new { id = @"([a-z]+-?)+", productId = @"([a-z]+-?)+" }
-                           
-
-
-
+              defaults: new { controller = "Category", action = "Product" }
+              //constraints: new { id = @"([a-z]+-?)+", productId = @"([a-z]+-?)+" }
           );
 
             routes.MapRoute(
                name: "Category",
                url: "{id}",
-               defaults: new { controller = "Category", action = "Index" },
-               constraints: new {id = @"([a-z]+-?)+" }
+               defaults: new { controller = "Category", action = "Index" }
+               //constraints: new {id = @"([a-z]+-?)+" }
            );
 
-
             routes.MapRoute(
-             name: "Default",
-             url: "{controller}/{action}/{id}",
-             defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-         );
+              name: "Default",
+              url: "{controller}/{action}/{id}",
+              defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+          );
 
-
-     
-    
-
-     
-     
         }
     }
 }
