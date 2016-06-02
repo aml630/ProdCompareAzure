@@ -24,3 +24,67 @@
     z-index: 1;
     opacity: .3;
 }
+
+.intro {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-style: normal;
+    font-size: 17px;
+    line-height: 28px;
+    font-weight: 400;
+    color: #000;
+    transition-duration: .5s;
+    border: 1px solid #d1d1d1;
+    box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
+    padding: 11px;
+    margin-top: 10px;
+    background-color: #e6ffff;
+}
+
+.tableOfContents {
+    display: flex;
+    justify-content: space-around;
+}
+
+.tableOfContents a {
+    border: 1px solid grey;
+    border-radius: 90%;
+    margin: 10px;
+    padding: 10px;
+    background-color: #e6ffff;
+    color: black;
+    font-weight: bold;
+}
+.greyBox {
+     transition-duration: .5s;
+    border: 1px solid #d1d1d1;
+    box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
+    padding: 11px;
+    margin-top: 10px;
+    background-color: #F8F8F8;
+    text-align: center;
+}
+
+.tblContents {
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-size: 30px;
+}
+
+.bodyText {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-style: normal;
+    font-size: 17px;
+    line-height: 28px;
+    font-weight: 400;
+    color: #000;
+}
+
+.addArticle {
+    width: 1000px;
+}
+.addArticle textarea {
+    height: 300px;
+    max-width: 1000px;
+    width: 100%;
+    
+}
+

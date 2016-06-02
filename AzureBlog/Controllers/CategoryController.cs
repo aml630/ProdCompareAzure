@@ -25,5 +25,24 @@ namespace AzureBlog.Controllers
             ViewBag.Products = db.Products.Where(x => x.CategoryId == clickedProduct.CategoryId);
             return View("Product", clickedProduct);
         }
+
+        public ActionResult AddDetails(int id, string Intro, string Sec1Title, string Sec1Body, string Sec2Title, string Sec2Body, string Sec3Title, string Sec3Body)
+        {
+            var updateCat = db.Categories.FirstOrDefault(y => y.CategoryId == id);
+
+            updateCat.Intro = Intro;
+            updateCat.Sec1Title = Sec1Title;
+            updateCat.Sec1Body = Sec1Body;
+            updateCat.Sec2Title = Sec2Title;
+            updateCat.Sec2Body = Sec2Body;
+            updateCat.Sec3Title = Sec3Title;
+            updateCat.Sec3Body = Sec3Body;
+            updateCat.CategoryArticle = true;
+
+            db.SaveChanges();
+
+            var clickedCategory = db.Categories.Where(x => x.CategoryId == id).Include(category => category.Products).ToList();
+            return View("Index", clickedCategory);
+        }
     }
 }

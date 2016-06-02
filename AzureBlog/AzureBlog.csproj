@@ -199,6 +199,14 @@
     <Compile Include="Migrations\201606012303020_ProductCategorySlugs.Designer.cs">
       <DependentUpon>201606012303020_ProductCategorySlugs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606021711592_categoryTitleAndBody.cs" />
+    <Compile Include="Migrations\201606021711592_categoryTitleAndBody.Designer.cs">
+      <DependentUpon>201606021711592_categoryTitleAndBody.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606021744540_categoryPostStuff.cs" />
+    <Compile Include="Migrations\201606021744540_categoryPostStuff.Designer.cs">
+      <DependentUpon>201606021744540_categoryPostStuff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CategoryModel.cs" />
@@ -304,6 +312,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606012303020_ProductCategorySlugs.resx">
       <DependentUpon>201606012303020_ProductCategorySlugs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606021711592_categoryTitleAndBody.resx">
+      <DependentUpon>201606021711592_categoryTitleAndBody.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606021744540_categoryPostStuff.resx">
+      <DependentUpon>201606021744540_categoryPostStuff.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

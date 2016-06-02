@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Alex Blog</title>
     @Styles.Render("~/Content/css")
     <link href="~/Content/CategoryBox.css" rel="stylesheet">
     <link href="~/Content/ProductBox.css" rel="stylesheet">
@@ -28,14 +27,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("BuyBabble", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a class="navbar-brand" href="~/">BuyBabble</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li><a href="~/">Home</a></li>
                     <li><a href="About">About</a></li>
                 </ul>
-                @*@Html.Partial("_LoginPartial")*@
+                @if (User.IsInRole("Admin"))
+                {
+               @Html.Partial("_LoginPartial")
+                }
             </div>
         </div>
     </div>
@@ -47,8 +49,12 @@
         </footer>
     </div>
 
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
+
 </html>
+<title>BuyBabble</title>
+

@@ -21,7 +21,24 @@ namespace AzureBlog.Models
             public string CategoryPic { get; set; }
             public bool CategoryArticle { get; set; }
 
-            public virtual ICollection<ProductModel> Products { get; set; }
+            public string Intro { get; set; }
+
+            public string Sec1Title { get; set; }
+            public string Sec1Body { get; set; }
+
+            public string Sec2Title { get; set; }
+            public string Sec2Body { get; set; }
+
+            public string Sec3Title { get; set; }
+            public string Sec3Body { get; set; }
+
+
+
+
+
+
+
+        public virtual ICollection<ProductModel> Products { get; set; }
 
         //public string GenerateSlug()
         //{

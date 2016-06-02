@@ -3,46 +3,52 @@
 
 @foreach(var category in Model)
 {
-
-    if (category.CategoryArticle == false)
-    {
-
-
-    <div class="productParent">
-    @foreach (var product in category.Products)
-    {
-        <a href="@product.ProductLink">
-            <div class="individualProduct">
-                <h2 class="productTitle">@product.ProductName</h2>
-                <hr />
-                <div class="childRow">
-                    <img class="subCatPic" src="@product.ProductImg" height="100" width="100" />
-                    <p class="priceBtn btn btn-success">$@product.ProductPrice</p>
-                    @if (product.ProductArticle == true)
-                    {
-                        <a class="articleBtn btn btn-danger" href="~/Product/Index/@product.ProductId">Read Review</a>
-                    }
-
-                </div>
-            </div>
-        </a>
-    }
-    </div>
-        }
-
+    <title>@category.CategoryName Comparison</title>
 
     if (category.CategoryArticle == true)
     {
         <div class="row">
             <div class="col-sm-9">
                 <div class="my-container">
-                    <h1>@category.CategoryName</h1>
+                    <h1>@category.CategoryName Comparison</h1>
                     <img src="@category.CategoryPic">
                 </div>
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
 
-</p>
-            </div>
+                <p class="intro">@category.Intro</p>
+                
+                <div class="greyBox">
+                    <p class="tblContents">Table of contents</p>
+                    <div class="tableOfContents">
+                        <a href="#Sec1">@category.Sec1Title</a>
+                        <a href="#Sec2">@category.Sec2Title</a>
+                        <a href="#Sec3">@category.Sec3Title</a>
+                    </div>
+                </div>
+
+                <div class="greyBox">
+                    <h2 id="Sec1">@category.Sec1Title</h2>
+                        <hr />
+                    <p class="bodyText">@category.Sec1Body</p>
+                 </div>
+
+                <div class="greyBox">
+                    <h2 id="Sec2">@category.Sec2Title</h2>
+                    <hr />
+
+                    <p class="bodyText">@category.Sec2Body</p>
+                </div>
+                <div class="greyBox">
+                    <h2 id="Sec3">@category.Sec1Title</h2>
+                    <hr />
+
+                    <p class="bodyText">@category.Sec2Body</p>
+                </div>
+                </div>
+
+
+
+
+
             <div class="col-sm-3">
                 <div class="productParent">
                     @foreach (var product in category.Products)
@@ -64,6 +70,67 @@
                 </div>
             </div>
 
+        </div>
+    }
+
+    if (category.CategoryArticle == false)
+    {
+        if (User.IsInRole("Admin"))
+        {
+            
+            <form class="addArticle" action="Default/Category/AddDetails" method="post">
+
+                <input name="id" hidden value="@category.CategoryId" />
+                <hr />
+
+                <textarea name ="Intro" placeholder="Intro"></textarea>
+                <hr />
+
+                <input name ="Sec1Title" placeholder="Sec1Title" />
+                <hr />
+
+                <textarea name="Sec1Body" placeholder="Sec1Body" ></textarea>
+                <hr />
+
+                <input  name="Sec2Title" placeholder="Sec2Title" />
+                <hr />
+
+                <textarea name="Sec2Body" placeholder="Sec2Body"></textarea>
+                <hr />
+
+                <input name="Sec3Title" placeholder="Sec3Title" />
+                <hr />
+
+                <textarea name="Sec3Body" placeholder="Sec3Body"></textarea>
+                <hr />
+
+                <button>Submit</button>
+            </form>
+
+        }
+        <div class="productParent">
+            <div class="my-container">
+                <h1>@category.CategoryName Comparison</h1>
+                <img src="@category.CategoryPic">
+            </div>
+            @foreach (var product in category.Products)
+            {
+                <a href="@product.ProductLink">
+                    <div class="individualProduct">
+                        <h2 class="productTitle">@product.ProductName</h2>
+                        <hr />
+                        <div class="childRow">
+                            <img class="subCatPic" src="@product.ProductImg" height="100" width="100" />
+                            <p class="priceBtn btn btn-success">$@product.ProductPrice</p>
+                            @if (product.ProductArticle == true)
+                            {
+                                <a class="articleBtn btn btn-danger" href="~/Product/Index/@product.ProductId">Read Review</a>
+                            }
+
+                        </div>
+                    </div>
+                </a>
+            }
         </div>
     }
 
