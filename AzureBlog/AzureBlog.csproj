@@ -219,6 +219,10 @@
     <Compile Include="Migrations\201606022324016_deleteCategorySections.Designer.cs">
       <DependentUpon>201606022324016_deleteCategorySections.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606030114559_addImageAndVideoToSegment.cs" />
+    <Compile Include="Migrations\201606030114559_addImageAndVideoToSegment.Designer.cs">
+      <DependentUpon>201606030114559_addImageAndVideoToSegment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CategoryModel.cs" />
@@ -340,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606022324016_deleteCategorySections.resx">
       <DependentUpon>201606022324016_deleteCategorySections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606030114559_addImageAndVideoToSegment.resx">
+      <DependentUpon>201606030114559_addImageAndVideoToSegment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

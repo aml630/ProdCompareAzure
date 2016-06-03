@@ -40,12 +40,15 @@ namespace AzureBlog.Controllers
             return View("Index", clickedCategory);
         }
 
-        public ActionResult AddSegment(int id, string Title, string Body)
+        public ActionResult AddSegment(int id, string Title, string Body, string Image, string Video)
         {
             var newSegment = new SegmentModel();
             newSegment.CategoryId = id;
             newSegment.SegmentTitle = Title;
             newSegment.SegmentBody = Body;
+            newSegment.SegmentImage = Image;
+            newSegment.SegmentVideo = Video;
+
             db.Segments.Add(newSegment);
             db.SaveChanges();
 

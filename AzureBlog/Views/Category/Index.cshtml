@@ -32,6 +32,14 @@
                     <div class="greyBox">
                         <h2 id="@segment.SegmentTitle">@segment.SegmentTitle</h2>
                         <hr />
+                        @if (segment.SegmentImage != "") 
+                        {
+                            <img src="@segment.SegmentImage"/>
+                        }
+                        @if (segment.SegmentVideo != "")
+                        {
+                            <iframe width="640" height="360" src="https://www.youtube.com/embed/@segment.SegmentVideo" frameborder="0" allowfullscreen></iframe>
+                        }
 
                         <p class="bodyText">@segment.SegmentBody</p>
                     </div>
@@ -46,6 +54,13 @@
                     <input name="Title" placeholder="Segment Title" />
                     <hr />
                     <textarea name="Body" placeholder="Segment Body"></textarea>
+                    <hr />
+
+                    <input name="Image" placeholder="Optional Image" />
+                    <hr />
+
+                    <input name="Video" placeholder="Optional Video" />
+
                     <hr />
                     <button>Add Seg</button>
                 </form>

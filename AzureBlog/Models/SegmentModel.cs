@@ -18,6 +18,9 @@ namespace AzureBlog.Models
         public int SegmentId { get; set; }
         public string SegmentTitle { get; set; }
         public string SegmentBody { get; set; }
+        public string SegmentImage { get; set; }
+        public string SegmentVideo { get; set; }
+
         public int CategoryId { get; set; }
         public virtual CategoryModel Category { get; set; }
     }

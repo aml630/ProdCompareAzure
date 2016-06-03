@@ -65,6 +65,22 @@
     text-align: center;
 }
 
+.greyBox img {
+    width: 80%;
+    height: 200px;
+    border-radius: 25px;
+    border: 1px solid #d1d1d1;
+    box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
+}
+
+.greyBox iframe {
+    width: 80%;
+    height: 200px;
+    border-radius: 25px;
+    border: 1px solid #d1d1d1;
+    box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
+}
+
 .tblContents {
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
    font-size: 30px;
