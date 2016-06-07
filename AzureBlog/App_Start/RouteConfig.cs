@@ -15,7 +15,17 @@ namespace AzureBlog
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute(
+           name: "Home",
+           url: "",
+           defaults: new { controller = "Home", action = "Index" }
+       );
 
+            routes.MapRoute(
+      name: "CatIndex",
+      url: "Category/Index",
+      defaults: new { controller = "Home", action = "Index" }
+  );
 
             routes.MapRoute(
               name: "Logoff",
@@ -57,10 +67,10 @@ namespace AzureBlog
            );
 
             routes.MapRoute(
-name: "newDefault",
-url: "Default/{controller}/{action}/{id}",
-defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-);
+            name: "newDefault",
+            url: "Default/{controller}/{action}/{id}",
+            defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
 
             routes.MapRoute(
        name: "Default",

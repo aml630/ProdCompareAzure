@@ -25,8 +25,8 @@ namespace AzureBlog.Controllers
             ViewBag.Products = db.Products.Where(x => x.CategoryId == clickedProduct.CategoryId);
             return View("Product", clickedProduct);
         }
-
-        public ActionResult AddDetails(int id, string Intro, string Sec1Title, string Sec1Body, string Sec2Title, string Sec2Body, string Sec3Title, string Sec3Body)
+        [ValidateInput(false)]
+        public ActionResult AddDetails(int id, string Intro)
         {
             var updateCat = db.Categories.FirstOrDefault(y => y.CategoryId == id);
 
@@ -39,13 +39,15 @@ namespace AzureBlog.Controllers
             var clickedCategory = db.Categories.Where(x => x.CategoryId == id).Include(category => category.Products).Include(category=>category.Segments).ToList();
             return View("Index", clickedCategory);
         }
-
-        public ActionResult AddSegment(int id, string Title, string Body, string Image, string Video)
+        [ValidateInput(false)]
+        public ActionResult AddSegment(int id, string Title, string Body, string Par2, string Par3, string Image, string Video)
         {
             var newSegment = new SegmentModel();
             newSegment.CategoryId = id;
             newSegment.SegmentTitle = Title;
             newSegment.SegmentBody = Body;
+            newSegment.SegmentPar2 = Par2;
+            newSegment.SegmentPar3 = Par3;
             newSegment.SegmentImage = Image;
             newSegment.SegmentVideo = Video;
 

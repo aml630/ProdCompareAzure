@@ -30,5 +30,9 @@ namespace AzureBlog.Controllers
 
             return View();
         }
+        public ActionResult Credits()
+        {
+            return View();
+        }
     }
 }

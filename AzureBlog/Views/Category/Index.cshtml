@@ -13,11 +13,15 @@
                     <h1>@category.CategoryName Comparison</h1>
                     <img src="@category.CategoryPic">
                 </div>
+        
 
                 <p class="intro">@category.Intro</p>
                 
                 <div class="greyBox">
-                    <p class="tblContents">Table of contents</p>
+                    <div class="alignCenter">
+                        <p class="tblContents">Table of contents</p>
+                    </div>
+                    <hr />
                     <div class="tableOfContents">
      
                         @foreach (var segment in category.Segments)
@@ -30,120 +34,43 @@
                 @foreach (var segment in category.Segments)
                 {
                     <div class="greyBox">
-                        <h2 id="@segment.SegmentTitle">@segment.SegmentTitle</h2>
-                        <hr />
-                        @if (segment.SegmentImage != "") 
-                        {
-                            <img src="@segment.SegmentImage"/>
-                        }
-                        @if (segment.SegmentVideo != "")
-                        {
-                            <iframe width="640" height="360" src="https://www.youtube.com/embed/@segment.SegmentVideo" frameborder="0" allowfullscreen></iframe>
-                        }
-
-                        <p class="bodyText">@segment.SegmentBody</p>
-                    </div>
-                }
-                @if (User.IsInRole("Admin"))
-                {
-                <h2>Add New Segment</h2>
-                <form class="addArticle" action="~/Default/Category/AddSegment">
-                    <input name="id" hidden value="@category.CategoryId" />
-                    <hr />
-
-                    <input name="Title" placeholder="Segment Title" />
-                    <hr />
-                    <textarea name="Body" placeholder="Segment Body"></textarea>
-                    <hr />
-
-                    <input name="Image" placeholder="Optional Image" />
-                    <hr />
-
-                    <input name="Video" placeholder="Optional Video" />
-
-                    <hr />
-                    <button>Add Seg</button>
-                </form>
-                }
-                </div>
-
-
-
-
-
-            <div class="col-sm-3">
-                <div class="productParent">
-                    @foreach (var product in category.Products)
-                    {
-                        <div class="individualProduct">
-                            <a href="@product.ProductLink"><h4 class="productTitle">@product.ProductName</h4></a>
+                        <div class="alignCenter">
+                            <h2 id="@segment.SegmentTitle">@segment.SegmentTitle</h2>
                             <hr />
-                            <div class="childRow">
-                                <img class="subCatPicSmall" src="@product.ProductImg" height="100" width="100" />
-                                <a href="@product.ProductLink" class="priceBtnSml btn btn-success">$@product.ProductPrice</a>
-                                @if (product.ProductArticle == true)
-                                {
-                                    <a class="reviewBtnSml btn btn-danger" href="~/@category.CategorySlug/@product.ProductSlug">Read Review</a>
-                                }
-
-                            </div>
-                        </div>
-                    }
-                </div>
-            </div>
-
-        </div>
-    }
-
-    if (category.CategoryArticle == false)
-    {
-        if (User.IsInRole("Admin"))
-        {
-            
-            <form class="addArticle" action="Default/Category/AddDetails" method="post">
-
-                <input name="id" hidden value="@category.CategoryId" />
-                <hr />
-
-                <textarea name ="Intro" placeholder="Intro"></textarea>
-                <hr />
-
-                <button>Submit</button>
-            </form>
-       
-
-        }
-        <div class="productParent">
-            <div class="my-container">
-                <h1>@category.CategoryName Comparison</h1>
-                <img src="@category.CategoryPic">
-            </div>
-            @foreach (var product in category.Products)
-            {
-                <a href="@product.ProductLink">
-                    <div class="individualProduct">
-                        <h2 class="productTitle">@product.ProductName</h2>
-                        <hr />
-                        <div class="childRow">
-                            <img class="subCatPic" src="@product.ProductImg" height="100" width="100" />
-                            <p class="priceBtn btn btn-success">$@product.ProductPrice</p>
-                            @if (product.ProductArticle == true)
+                            @if (segment.SegmentImage != "")
                             {
-                                <a class="articleBtn btn btn-danger" href="~/Product/Index/@product.ProductId">Read Review</a>
+                                <img src="@segment.SegmentImage" />
                             }
-
+                            @if (segment.SegmentVideo != "")
+                        {
+                                <iframe src="https://www.youtube.com/embed/@segment.SegmentVideo" frameborder="0" allowfullscreen></iframe>
+                            }
                         </div>
+                        <p class="bodyText">@segment.SegmentBody</p>
+                        @if (segment.SegmentPar2 != "")
+                        {
+                            <br />
+                            <p class="bodyText">@segment.SegmentPar2</p>
+                        }
+                        @if (segment.SegmentPar3 != "")
+                        {
+                            <br />
+                            <p class="bodyText">@segment.SegmentPar3</p>
+                        }
                     </div>
-                </a>
-            }
+                }
+   
+                @Html.Partial("_AddSegment")
+
+
+                </div>
+
+          @Html.Partial("_Sidebar")
+
         </div>
     }
 
-
-
-
-
-
+    @Html.Partial("_ArticleFalse")
 
 
 }

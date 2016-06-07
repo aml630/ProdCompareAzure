@@ -1,0 +1,32 @@
+﻿@model IEnumerable<AzureBlog.Models.CategoryModel>
+
+@foreach (var category in Model)
+{
+if (User.IsInRole("Admin"))
+
+{
+    <h2>Add New Segment</h2>
+                    <form class="addArticle" action="~/Default/Category/AddSegment">
+                        <input name="id" hidden value="@category.CategoryId" />
+                        <hr />
+
+                        <input name="Title" placeholder="Segment Title" />
+                        <hr />
+                        <textarea name="Body" placeholder="Segment Body"></textarea>
+                        <hr />
+                        <textarea name="Par2" placeholder="Optional Par2"></textarea>
+                        <hr />
+                        <textarea name="Par3" placeholder="Optional Par3"></textarea>
+                        <hr />
+
+
+                        <input name="Image" placeholder="Optional Image" />
+                        <hr />
+
+                        <input name="Video" placeholder="Optional Video" />
+
+                        <hr />
+                        <button>Add Seg</button>
+                    </form>
+}
+}

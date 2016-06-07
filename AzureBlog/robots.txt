@@ -1,0 +1,2 @@
+﻿User-agent: *
+Disallow: /Default/Home/Credits

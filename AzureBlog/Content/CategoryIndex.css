@@ -5,7 +5,7 @@
     overflow: hidden;
     margin-bottom: 20px;
     border-radius: 20px;
-    height: 200px;
+    height: 230px;
 }
 .my-container h1 {
     padding: 120px;
@@ -14,6 +14,7 @@
     position: relative;
     color: black;
     font-weight: bold;
+    /*margin-bottom: 60px;*/
 } 
 .my-container img {
     position: absolute;
@@ -62,15 +63,16 @@
     padding: 11px;
     margin-top: 10px;
     background-color: #F8F8F8;
-    text-align: center;
 }
 
 .greyBox img {
+  
     width: 80%;
     height: 200px;
     border-radius: 25px;
     border: 1px solid #d1d1d1;
     box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
+    margin-bottom: 30px;
 }
 
 .greyBox iframe {
@@ -79,11 +81,20 @@
     border-radius: 25px;
     border: 1px solid #d1d1d1;
     box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
+        margin-bottom: 30px;
+
 }
 
 .tblContents {
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
    font-size: 30px;
+    border: 1px solid #d9d9d9;
+    border-radius: 25px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #e6e6e6;
+    color: #333333;
+    font-weight: bold;
 }
 
 .bodyText {
@@ -93,6 +104,7 @@
     line-height: 28px;
     font-weight: 400;
     color: #000;
+    
 }
 
 .addArticle {
@@ -102,6 +114,9 @@
     height: 300px;
     max-width: 800px;
     width: 100%;
-    
+}
+
+.alignCenter {
+    text-align: center;
 }
 

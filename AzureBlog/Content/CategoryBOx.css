@@ -29,12 +29,12 @@ background-color: #F8F8F8 ;
 }
 
 .subCatPicSmall {
-    height: 60px;
-    width: 60px;
+    height: 150px;
+    width: 150px;
     border-radius: 80%;
     box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
     border: 1px solid #d1d1d1;
-  border: 1px solid #d1d1d1;
+    border: 1px solid #d1d1d1;
 }
 .subCatParent {
      display: flex;

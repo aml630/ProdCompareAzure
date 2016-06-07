@@ -1,6 +1,16 @@
-﻿.productParent {
+﻿.scrollParent{
+      position: relative; 
 
-    width: 100%;
+}
+
+.scrollChild {
+position: fixed;
+max-width: 300px;
+}
+
+
+.productParent {
+    /*width: 100%;*/
 }
 
 .individualProduct {
@@ -9,9 +19,8 @@
   border: 1px solid #d1d1d1;
   box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
   padding: 11px;
-    margin-top: 10px;
-      /*text-align: center;*/
-background-color: #F8F8F8 ;
+    margin-top: 10px; 
+    background-color: #F8F8F8 ;
 }
 
 .individualProduct:hover {

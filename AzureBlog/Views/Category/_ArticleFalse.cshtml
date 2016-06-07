@@ -1,0 +1,82 @@
+﻿
+@model IEnumerable<AzureBlog.Models.CategoryModel>
+
+@foreach (var category in Model)
+{
+
+    if (category.CategoryArticle == false)
+    {
+        if (User.IsInRole("Admin"))
+        {
+
+            <form class="addArticle" action="Default/Category/AddDetails" method="post">
+
+                <input name="id" hidden value="@category.CategoryId" />
+                <hr />
+
+                <textarea name="Intro" placeholder="Intro"></textarea>
+                <hr />
+
+                <button class="btn btn-danger">Add Article</button>
+            </form>
+
+            <h2>Add New Segment</h2>
+            <form class="addArticle" action="~/Default/Category/AddSegment">
+                <input name="id" hidden value="@category.CategoryId" />
+                <hr />
+
+                <input name="Title" placeholder="Segment Title" />
+                <hr />
+                <textarea name="Body" placeholder="Segment Body"></textarea>
+                <hr />
+                <textarea name="Par2" placeholder="Optional Par2"></textarea>
+                <hr />
+                <textarea name="Par3" placeholder="Optional Par3"></textarea>
+                <hr />
+
+
+                <input name="Image" placeholder="Optional Image" />
+                <hr />
+
+                <input name="Video" placeholder="Optional Video" />
+
+                <hr />
+                <button>Add Seg</button>
+            </form>
+
+
+        }
+        <div class="productParent">
+            <div class="my-container">
+                <h1>@category.CategoryName Comparison</h1>
+                <img src="@category.CategoryPic">
+            </div>
+            @foreach (var product in category.Products)
+            {
+                <a href="@product.ProductLink">
+                    <div class="individualProduct">
+                        <h2 class="productTitle">@product.ProductName</h2>
+                        <hr />
+                        <div class="childRow">
+                            <img class="subCatPic" src="@product.ProductImg" height="100" width="100" />
+                            <p class="priceBtn btn btn-success">$@product.ProductPrice</p>
+                            @if (product.ProductArticle == true)
+                            {
+                                <a class="articleBtn btn btn-danger" href="~/Product/Index/@product.ProductId">Read Review</a>
+                            }
+
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+    }
+
+
+
+
+
+
+
+
+}
