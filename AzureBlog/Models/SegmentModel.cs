@@ -17,13 +17,20 @@ namespace AzureBlog.Models
         [Key]
         public int SegmentId { get; set; }
         public string SegmentTitle { get; set; }
-        public string SegmentBody { get; set; }
+        public string SegmentPar1 { get; set; }
         public string SegmentPar2 { get; set; }
         public string SegmentPar3 { get; set; }
+        public string SegmentPar4 { get; set; }
+        public string SegmentPar5 { get; set; }
+        public string SegmentPar6 { get; set; }
+        public string SegmentPar7 { get; set; }
+
         public string SegmentImage { get; set; }
         public string SegmentVideo { get; set; }
 
         public int CategoryId { get; set; }
         public virtual CategoryModel Category { get; set; }
+        public virtual ICollection<ResourceModel> Resources { get; set; }
+
     }
 }

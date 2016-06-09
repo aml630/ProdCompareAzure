@@ -45,13 +45,29 @@ namespace AzureBlog.Controllers
             var newSegment = new SegmentModel();
             newSegment.CategoryId = id;
             newSegment.SegmentTitle = Title;
-            newSegment.SegmentBody = Body;
+            newSegment.SegmentPar1 = Body;
             newSegment.SegmentPar2 = Par2;
             newSegment.SegmentPar3 = Par3;
             newSegment.SegmentImage = Image;
             newSegment.SegmentVideo = Video;
 
             db.Segments.Add(newSegment);
+            db.SaveChanges();
+
+
+            var clickedCategory = db.Categories.Where(x => x.CategoryId == id).Include(category => category.Products).Include(category => category.Segments).ToList();
+            return View("Index", clickedCategory);
+        }
+
+        public ActionResult AddResource(int id, string Title, string Link)
+        {
+            var newResource = new ResourceModel();
+            newResource.SegmentId = id;
+            newResource.ResourceLink = Link;
+            newResource.ResourceTitle = Title;
+          
+
+            db.Resources.Add(newResource);
             db.SaveChanges();
 
 

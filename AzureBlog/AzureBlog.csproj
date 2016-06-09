@@ -227,12 +227,21 @@
     <Compile Include="Migrations\201606031613073_segmentPar2Par3.Designer.cs">
       <DependentUpon>201606031613073_segmentPar2Par3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606080013475_ResourceMOdel.cs" />
+    <Compile Include="Migrations\201606080013475_ResourceMOdel.Designer.cs">
+      <DependentUpon>201606080013475_ResourceMOdel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606080027020_ResourceMOdel2.cs" />
+    <Compile Include="Migrations\201606080027020_ResourceMOdel2.Designer.cs">
+      <DependentUpon>201606080027020_ResourceMOdel2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\ResourceModel.cs" />
     <Compile Include="Models\SegmentModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -263,6 +272,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\scripts.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Content\AboutUs.css" />
     <Content Include="Web.config">
@@ -359,6 +369,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606031613073_segmentPar2Par3.resx">
       <DependentUpon>201606031613073_segmentPar2Par3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606080013475_ResourceMOdel.resx">
+      <DependentUpon>201606080013475_ResourceMOdel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606080027020_ResourceMOdel2.resx">
+      <DependentUpon>201606080027020_ResourceMOdel2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

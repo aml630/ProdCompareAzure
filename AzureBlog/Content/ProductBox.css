@@ -23,6 +23,10 @@ max-width: 300px;
     background-color: #F8F8F8 ;
 }
 
+.active {
+    width: 800px;
+}
+
 .individualProduct:hover {
      transition-duration: .5s;
   box-shadow: green 0px 3px 12px 1px;

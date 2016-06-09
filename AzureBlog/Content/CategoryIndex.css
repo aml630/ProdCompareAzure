@@ -1,4 +1,6 @@
 ﻿
+
+
 .my-container {
     position: relative;
     background: white;
@@ -8,13 +10,40 @@
     height: 230px;
 }
 .my-container h1 {
-    padding: 120px;
+    /*padding: 120px;*/
     text-align: center;
-    z-index: 2;
+
+        font-weight: 300;
+         font-size: 88px;
+         font-weight: bold;
+
+    /*z-index: 2;
     position: relative;
     color: black;
-    font-weight: bold;
-    /*margin-bottom: 60px;*/
+    font-weight: bold;*/
+
+     /*color: #e0dfdc;
+    background-color: #333;
+    letter-spacing: .1em;
+    text-shadow: 
+      0 -1px 0 #fff, 
+      0 1px 0 #2e2e2e, 
+      0 2px 0 #2c2c2c, 
+      0 3px 0 #2a2a2a, 
+      0 4px 0 #282828, 
+      0 5px 0 #262626, 
+      0 6px 0 #242424, 
+      0 7px 0 #222, 
+      0 8px 0 #202020, 
+      0 9px 0 #1e1e1e, 
+      0 10px 0 #1c1c1c, 
+      0 11px 0 #1a1a1a, 
+      0 12px 0 #181818, 
+      0 13px 0 #161616, 
+      0 14px 0 #141414, 
+      0 15px 0 #121212, 
+      0 22px 30px rgba(0, 0, 0, 0.9);*/
+    
 } 
 .my-container img {
     position: absolute;
@@ -27,7 +56,7 @@
 }
 
 .intro {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-style: normal;
     font-size: 17px;
     line-height: 28px;
@@ -39,6 +68,12 @@
     padding: 11px;
     margin-top: 10px;
     background-color: #e6e6e6;
+    padding: 0 0 41px;
+    line-height: 28.7px;
+        font-weight: 200;
+        padding: 10px;
+
+
 }
 
 .tableOfContents {
@@ -52,10 +87,13 @@
     border-radius: 25px;
     margin: 10px;
     padding: 10px;
-    background-color: #e6e6e6;
-    color: #333333;
+    background-color: #484848;
+    color: #e6e6e6;
     font-weight: bold;
+    font-size: 16px;
+
 }
+
 .greyBox {
      transition-duration: .5s;
     border: 1px solid #d1d1d1;
@@ -101,7 +139,7 @@
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-style: normal;
     font-size: 17px;
-    line-height: 28px;
+    line-height: 30px;
     font-weight: 400;
     color: #000;
     
@@ -120,3 +158,105 @@
     text-align: center;
 }
 
+/*#segmentTitle {
+
+    background-color: white !important;
+}*/
+
+#segmentTitle h2{
+    font-size: 35px;
+    color: #131313;
+    
+    letter-spacing: .15em;
+    text-shadow: 
+      1px -1px 0 #767676, 
+      -1px 2px 1px #737272;
+}
+
+.moreResources {
+    display: none;
+    margin-left: 25px;
+}
+
+.moreResources ul {
+    list-style-type: square;
+    margin: 0;
+    padding: 43px 17px;
+    /*border-top: 1px solid #414042;*/
+    font-size: 20px;
+
+}
+
+.moreResources li {
+    padding: 10px;
+        color: #37a2c1;
+    font-size: 22px;
+}
+
+/***********************
+  CUSTON Bootstrap
+************************/
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+ 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+ 
+.btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+}
+ 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+ 
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}
+
+
+
+/***********************
+  OUTLINE BUTTONS
+************************/
+
+.btn.outline {
+    background: none;
+    padding: 12px 22px;
+}
+.btn-primary.outline {
+    border: 2px solid #0099cc;
+    color: #0099cc;
+}
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+    color: #33a6cc;
+    border-color: #33a6cc;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+    border-color: #007299;
+    color: #007299;
+    box-shadow: none;
+}
+
+/***********************
+  CUSTON BTN VALUES
+************************/
+
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}

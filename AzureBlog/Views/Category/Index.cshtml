@@ -8,9 +8,9 @@
     if (category.CategoryArticle == true)
     {
         <div class="row">
-            <div class="col-sm-9">
+            <div class="col-sm-9 mainContainer">
                 <div class="my-container">
-                    <h1>@category.CategoryName Comparison</h1>
+                    <h1>@category.CategoryName</h1>
                     <img src="@category.CategoryPic">
                 </div>
         
@@ -35,7 +35,9 @@
                 {
                     <div class="greyBox">
                         <div class="alignCenter">
-                            <h2 id="@segment.SegmentTitle">@segment.SegmentTitle</h2>
+                            <div id="segmentTitle">
+                                <h2 id="@segment.SegmentTitle">@segment.SegmentTitle</h2>
+                            </div>
                             <hr />
                             @if (segment.SegmentImage != "")
                             {
@@ -46,7 +48,7 @@
                                 <iframe src="https://www.youtube.com/embed/@segment.SegmentVideo" frameborder="0" allowfullscreen></iframe>
                             }
                         </div>
-                        <p class="bodyText">@segment.SegmentBody</p>
+                        <p class="bodyText">@segment.SegmentPar1</p>
                         @if (segment.SegmentPar2 != "")
                         {
                             <br />
@@ -57,8 +59,66 @@
                             <br />
                             <p class="bodyText">@segment.SegmentPar3</p>
                         }
+                        @if (segment.SegmentPar4 != "")
+                        {
+                            <br />
+                            <p class="bodyText">@segment.SegmentPar4</p>
+                        }
+                        @if (segment.SegmentPar5 != "")
+                        {
+                            <br />
+                            <p class="bodyText">@segment.SegmentPar5</p>
+                        }
+                        @if (segment.SegmentPar6 != "")
+                        {
+                            <br />
+                            <p class="bodyText">@segment.SegmentPar6</p>
+                        }
+                        @if (segment.SegmentPar7 != "")
+                        {
+                            <br />
+                            <p class="bodyText">@segment.SegmentPar7</p>
+                        }
+
+                        @if (segment.Resources.Count() > 0)
+                        {
+                            <div class="alignCenter">
+                                <button type="button" class="btn btn-primary btn-lg outline learnMore">
+                                    Learn More About
+                                    @segment.SegmentTitle
+                                </button>
+                            </div>
+                            <div class="moreResources">
+
+                                <ul>
+
+                                    @foreach (var resource in segment.Resources)
+                                    {
+                                        <li><a href="@resource.ResourceLink">@resource.ResourceTitle</a></li>
+                                    }
+                                </ul>
+                            </div>
+
+                        }
                     </div>
+                    if (User.IsInRole("Admin"))
+                    {
+                        <h2>Add New Resource</h2>
+                        <form class="addResource" action="~/Default/Category/AddResource">
+                            <input name="id" hidden value="@segment.SegmentId" />
+                            <hr />
+
+                            <textarea name="Title" placeholder="Resource Title"></textarea>
+
+                            <input name="Link" placeholder="Resource Link" />
+                            <hr />
+             
+
+                            <button>Add Resource</button>
+                        </form>
+                    }
                 }
+                
    
                 @Html.Partial("_AddSegment")
 

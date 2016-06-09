@@ -1,5 +1,8 @@
 ﻿@model IEnumerable<AzureBlog.Models.CategoryModel>
-
+     @if (User.IsInRole("Admin"))
+     {
+         <button class="testButton btn btn-danger">Discuss Products</button>
+     }
 @foreach (var category in Model)
 {
 
