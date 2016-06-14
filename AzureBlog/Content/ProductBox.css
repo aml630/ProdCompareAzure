@@ -8,6 +8,16 @@ position: fixed;
 max-width: 300px;
 }
 
+.next {
+    position: absolute;
+    bottom: 10px;
+    width: 93%;
+}
+.prev {
+    position: absolute;
+    bottom: 70px;
+    width: 93%;
+}
 
 .productParent {
     /*width: 100%;*/
@@ -21,6 +31,8 @@ max-width: 300px;
   padding: 11px;
     margin-top: 10px; 
     background-color: #F8F8F8 ;
+    height: 500px;
+    width: 300px;
 }
 
 .active {

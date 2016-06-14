@@ -10,11 +10,6 @@
     <link href="~/Content/AboutUs.css" rel="stylesheet">
     <link href="~/Content/CategoryIndex.css" rel="stylesheet">
 
-
-
-
-
-
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -28,6 +23,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="~/">BuyBabble</a>
+                
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -52,13 +49,49 @@
 
 
 
+    <script type="x-shader/x-vertex" id="vertexshader">
+        uniform float amplitude;
+        attribute vec3 displacement;
+        attribute vec3 customColor;
+        varying vec3 vColor;
+        void main() {
+        vec3 newPosition = position + amplitude * displacement;
+        vColor = customColor;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4( newPosition, 1.0 );
+        }
+    </script>
+
+    <script type="x-shader/x-fragment" id="fragmentshader">
+        uniform vec3 color;
+        uniform float opacity;
+        varying vec3 vColor;
+        void main() {
+        gl_FragColor = vec4( vColor * color, opacity );
+        }
+    </script>
+
+
+
+
     @Scripts.Render("~/bundles/jquery")
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/scripts")
+  
+
     @RenderSection("scripts", required: false)
+
+
+
+
+    @*<script src="~/Scripts/3DLogo.js"></script>*@
+
     <script src="/Scripts/scripts.js"></script>
+
+
+
+
 </body>
 
 </html>

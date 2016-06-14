@@ -3,11 +3,13 @@
      {
          <button class="testButton btn btn-danger">Discuss Products</button>
      }
+
 @foreach (var category in Model)
 {
 
     <div class="col-sm-3 scrollParent">
         <div class="productParent scrollChild">
+
 
             @foreach (var product in category.Products)
             {
@@ -17,19 +19,18 @@
                     <div class="childRow">
                         <img class="subCatPicSmall" src="@product.ProductImg"/>
 
-                        @*<a href="@product.ProductLink" class="priceBtnSml btn btn-success">$@product.ProductPrice</a>
-                        @if (product.ProductArticle == true)
-                        {
-                            <a class="reviewBtnSml btn btn-danger" href="~/@category.CategorySlug/@product.ProductSlug">Read Review</a>
-                        }*@
-
-
-
+       
                     </div>
+                    <button class="next btn btn-block">Next</button>
+                    <button class="btn btn-block prev">Previous</button>
                 </div>
             }
 
         </div>
+      
     </div>
+
+ 
+
 
 }

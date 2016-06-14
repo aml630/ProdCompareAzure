@@ -253,11 +253,14 @@
     <Content Include="Content\ProductBox.css" />
     <Content Include="Content\ProductPage.css" />
     <Content Include="Content\CategoryIndex.css" />
+    <Content Include="Content\slick.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="robots.txt" />
+    <Content Include="Scripts\3DLogo.js" />
+    <Content Include="Scripts\BirdBackGround.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\AzureBlogSimple2506.pubxml" />
@@ -318,6 +321,7 @@
     <Content Include="Views\Category\_AddSegment.cshtml" />
     <Content Include="Views\Category\_ArticleFalse.cshtml" />
     <Content Include="Views\Category\_Sidebar.cshtml" />
+    <Content Include="Views\Category\_Carousel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
