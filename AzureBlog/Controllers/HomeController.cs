@@ -34,5 +34,7 @@ namespace AzureBlog.Controllers
         {
             return View();
         }
+
+
     }
 }
