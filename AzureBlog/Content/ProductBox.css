@@ -1,11 +1,127 @@
-﻿.scrollParent{
-      position: relative; 
+﻿
+.reviewBox {
+    transition-duration: .5s;
+    border: 1px solid #d1d1d1;
+    box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
+    padding: 11px;
+    margin-top: 10px; 
+    background-color: #F8F8F8 ;
+    /*min-height: 700px;*/
+    height: auto;
+    width: 80%;
+    position: relative;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
+    margin: auto;
+    margin-top: 20px;
+    padding-bottom: 24px;
+
+}
+.allReviews {
+        margin-bottom: 170px;
+
+}
+
+.author {
+    float: right;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.stars {
+    float: left;
+    padding-bottom: 10px;
+}
+.stars i {
+  
+}
+
+
+/*////////////REVIEW BOX/////////////*/
+
+.twitter-share-button {
+    position: fixed;
+    margin-bottom: 40px;
+    width: 300px;
+}
+
+
+.rate {   
+    height: 46px;
+}
+
+.rate label {
+    margin-left: 12px;
+    margin-right: 12px;
+
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+.showReview span{
+    color: yellow;
+}
+
+.showReview {
+    position: relative;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 93%;
+}
+
+
+.leaveReview {
+    display:none;
+    text-align: center;
+}
+
+.leaveReview button {
+    margin-top: 10px;
+}
+
+
+.scrollParent{
+      position: relative; 
 }
 
 .scrollChild {
 position: fixed;
 max-width: 300px;
+margin-top: 80px;
 }
 
 .next {
@@ -25,14 +141,14 @@ max-width: 300px;
 
 .individualProduct {
       transition-duration: .5s;
-
   border: 1px solid #d1d1d1;
   box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
   padding: 11px;
     margin-top: 10px; 
     background-color: #F8F8F8 ;
-    height: 500px;
-    width: 300px;````
+    min-height: 700px;
+    height: auto;
+    width: 300px;
 }
 
 .active {
@@ -76,4 +192,9 @@ max-width: 300px;
     width: 100px;
     font-size: 20px
     
+}
+
+.form-control:focus {
+  border-color: green;
+  box-shadow: inset green 0px 1px 2px 1px;
 }

@@ -15,6 +15,8 @@ namespace AzureBlog
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+       
+
             routes.MapRoute(
            name: "Home",
            url: "",

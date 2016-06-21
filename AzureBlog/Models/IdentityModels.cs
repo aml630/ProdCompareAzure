@@ -34,6 +34,8 @@ namespace AzureBlog.Models
         public DbSet<CategoryModel> Categories { get; set; }
         public DbSet<SegmentModel> Segments { get; set; }
         public DbSet<ResourceModel> Resources { get; set; }
+        public DbSet<ReviewModel> Reviews { get; set; }
+
 
 
 

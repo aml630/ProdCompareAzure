@@ -16,9 +16,13 @@ namespace AzureBlog.Models
 
         [Key]
         public int ReviewId { get; set; }
+        public int ProductId { get; set; }
+        public int ReviewStars { get; set; }
         public string ReviewText { get; set; }
         public string ReviewAuthor { get; set; }
         public string ReviewIP { get; set; }
+        public virtual ProductModel Product { get; set; }
+
 
     }
 }

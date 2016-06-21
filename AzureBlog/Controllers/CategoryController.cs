@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
+
 namespace AzureBlog.Controllers
 {
     public class CategoryController : Controller
@@ -15,6 +17,9 @@ namespace AzureBlog.Controllers
         public ActionResult Index(string id)
         {
             var clickedCategory = db.Categories.Where(x =>x.CategorySlug== id).Include(category => category.Products).Include(category=>category.Segments).ToList();
+
+            ViewBag.Reviews = db.Reviews.ToList();
+
             return View(clickedCategory);
         }
 
@@ -31,7 +36,8 @@ namespace AzureBlog.Controllers
             var updateCat = db.Categories.FirstOrDefault(y => y.CategoryId == id);
 
             updateCat.Intro = Intro;
-           
+            updateCat.FbShares = 0;
+            updateCat.TwitShares = 0;
             updateCat.CategoryArticle = true;
 
             db.SaveChanges();
@@ -71,8 +77,23 @@ namespace AzureBlog.Controllers
             db.SaveChanges();
 
 
-            var clickedCategory = db.Categories.Where(x => x.CategoryId == id).Include(category => category.Products).Include(category => category.Segments).ToList();
-            return View("Index", clickedCategory);
+            var thisSegment = db.Segments.Where(x => x.SegmentId == id).First();
+            var thisCategory = db.Categories.Where(x => x.CategoryId == thisSegment.CategoryId).First();
+
+            var catSlug = thisCategory.CategorySlug;
+
+            return RedirectToAction("Index", "Category", new { id = catSlug });
         }
+
+        public ActionResult Tweet(int id)
+        {
+            CategoryModel thisCat = db.Categories.FirstOrDefault(x => x.CategoryId == id);
+            thisCat.TwitShares = thisCat.TwitShares + 1;
+            db.SaveChanges();
+            string NewShares = thisCat.TwitShares.ToString();
+            return Content(NewShares, "text/plain");
+        }
+
+
     }
 }

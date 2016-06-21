@@ -4,10 +4,28 @@
          <button class="testButton btn btn-danger">Discuss Products</button>
      }
 
+
+
 @foreach (var category in Model)
 {
 
+
+
+
+
     <div class="col-sm-3 scrollParent">
+
+
+        <form class="tweet">
+            @*<input hidden class="id" name="id" value="@category.CategoryId" />*@
+            @*onclick="$(this).closest('form').submit()"*@ 
+
+           <a target="_blank" class="discuss twitter-share-button btn btn-primary btn-lg outline" href="https://twitter.com/intent/tweet?text= Tons of great information about @category.CategoryName http://www.buybabble.com/@category.CategorySlug" data-size="large" data-url="http://www.buybabble.com/@category.CategorySlug">
+                <img src="https://cdn0.iconfinder.com/data/icons/social-icons-20/200/Twitter-icon-128.png" height="50" wdith="50">
+                @*<span class="tweetNumber">@category.TwitShares</span>*@
+            </a>
+        </form>
+
         <div class="productParent scrollChild">
 
 
@@ -17,10 +35,60 @@
                     <a href="@product.ProductLink"><h4 class="productTitle">@product.ProductName</h4></a>
                     <hr />
                     <div class="childRow">
-                        <img class="subCatPicSmall" src="@product.ProductImg"/>
+                        <a href="@product.ProductLink"><img class="subCatPicSmall" src="@product.ProductImg" /></a>
 
-       
+
+</div>
+
+                    <button class="showReview btn btn-block">
+                     <span class="glyphicon glyphicon-star">
+                        </span>
+                        Leave Review
+                        </button>
+
+
+     
+
+                    <form class="leaveReview"  action="~/Default/Product/AddReview" method="post">
+
+                        <div class="rate">
+                            <input type="radio" id="star5" name="rate" value="5">
+                            <label for="star5" title="text">5 stars</label>
+                            <input type="radio" id="star4" name="rate" value="4">
+                            <label for="star4" title="text">4 stars</label>
+                            <input type="radio" id="star3" name="rate" value="3">
+                            <label for="star3" title="text">3 stars</label>
+                            <input type="radio" id="star2" name="rate" value="2">
+                            <label for="star2" title="text">2 stars</label>
+                            <input type="radio" id="star1" name="rate" value="1">
+                            <label for="star1" title="text">1 star</label>
+                        </div>
+
+                        <input class='testStars' hidden name="testStars" placeholder="stars PLz" value=43 />
+                        <textarea class="form-control" name="reviewText" placeholder="Optional Review Message"></textarea>
+                        <input name="productId" hidden value="@product.ProductId" />
+                        <input class="form-control" name="reviewAuthor" placeholder ="Optional Author Name" value="Anonymous" />
+                        <input hidden name="categorySlug" value=@category.CategorySlug />
+
+                        <button class="btn btn-info">Post Review!</button>
+
+                    </form>
+                    <div class="allReviews">
+                        @foreach (var review in @ViewBag.Reviews)
+                    {
+                        if (review.ProductId == product.ProductId)
+                        {
+                                <div class="reviewBox">
+                                    <p>@review.ReviewText</p>
+                                    <p class="author">~@review.ReviewAuthor</p>
+                                    <div class="stars">
+                                        <span>@review.ReviewStars</span><i class="glyphicon glyphicon-star-empty"></i>
+                                    </div>
+                                </div>
+                            }
+                        }
                     </div>
+
                     <button class="next btn btn-block">Next</button>
                     <button class="btn btn-block prev">Previous</button>
                 </div>
