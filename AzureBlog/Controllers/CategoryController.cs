@@ -94,6 +94,26 @@ namespace AzureBlog.Controllers
             return Content(NewShares, "text/plain");
         }
 
+        public ActionResult UnPublish(int catId)
+        {
+            CategoryModel thisCat = db.Categories.FirstOrDefault(x => x.CategoryId == catId);
+            thisCat.CategoryArticle = false;
+            db.SaveChanges();
+
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult Publish(int catId)
+        {
+            CategoryModel thisCat = db.Categories.FirstOrDefault(x => x.CategoryId == catId);
+            thisCat.CategoryArticle = true;
+            db.SaveChanges();
+
+
+            return RedirectToAction("Index", "Home");
+        }
+
 
     }
 }

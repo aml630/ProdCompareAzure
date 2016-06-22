@@ -9,18 +9,51 @@
     
     @foreach (var category in Model)
     {
-        if (category.CategoryArticle == true)
-        {
-        <a href="~/@category.CategorySlug"class="product-box">
+
+        if (User.IsInRole("Admin"))
+        { 
+        <a href="~/@category.CategorySlug" class="product-box">
             <div class="section1">
                 <h2>@category.CategoryName</h2>
             </div>
             <div class="section2">
                 <img class="subCatPic" src="@category.CategoryPic">
             </div>
-
+            @if (category.CategoryArticle == true)
+            {
+                <form action="~/Default/Category/Unpublish">
+                    <input name="catId" hidden value="@category.CategoryId" />
+                    <input type="submit" class="btn btn-danger" value="UnPublish">
+                </form>
+            }
+            @if (category.CategoryArticle == false)
+            {
+                <form action="~/Default/Category/Publish">
+                    <input name="catId" hidden value="@category.CategoryId" />
+                    <input type="submit" class="btn btn-success" value="Publish">
+                </form>
+            }
         </a>
+       
         }
+        else
+        {
+
+            if (category.CategoryArticle == true)
+            {
+                <a href="~/@category.CategorySlug" class="product-box">
+                    <div class="section1">
+                        <h2>@category.CategoryName</h2>
+                    </div>
+                    <div class="section2">
+                        <img class="subCatPic" src="@category.CategoryPic">
+                    </div>
+
+                </a>
+            }
+        }
+
+
     }
 
 </div>
