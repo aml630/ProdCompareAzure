@@ -5,7 +5,7 @@ By: Alex Larson
 
 ## Description
 
-<p>A Content Management System for creating product based informational articles and product comparisons.  Utilizes th Amazon API in order to facilitate easy updates.  Check out a live version at www.buybabble.com</p>
+<p>A Content Management System for creating product based informational articles and product comparisons.  Utilizes the Amazon API in order to facilitate easy updates and the Three JS library for visual effects.  Check out a live version at www.buybabble.com</p>
 
 ## Setup/Installation Requirements
 * Clone the repository.
@@ -24,6 +24,7 @@ By: Alex Larson
 * Visual Studio 2015
 * SSMS 
 * RestSharp
+* ThreeJS
 
 
 ## MIT License
