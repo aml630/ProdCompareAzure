@@ -56,8 +56,25 @@
 
     }
 
-</div>
+   
 
+</div>
+@*@if (User.IsInRole("Admin"))
+{
+    <h3>New Article!</h3>
+        <form action="~/Default/Article/CreateArticle">
+            <input name="name" placeholder="Article Title" />
+            <input name="slug" plaeholder="Article Slug" />
+            <button>MakeIt</button>
+        </form>
+
+        foreach(var article in @ViewBag.Articles)
+        {
+            <a href="~/Post/@article.ArticleSlug">@article.ArticleName</a>
+        }
+
+
+}*@
 <script src="/Scripts/three.min.js"></script>
 <script src="/Scripts/Projector.js"></script>
 <script src="/Scripts/CanvasRenderer.js"></script>

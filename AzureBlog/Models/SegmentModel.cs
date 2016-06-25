@@ -29,8 +29,14 @@ namespace AzureBlog.Models
         public string SegmentVideo { get; set; }
 
         public int CategoryId { get; set; }
+    
+        public int ArticleParent { get; set; }
+
+
         public virtual CategoryModel Category { get; set; }
+
         public virtual ICollection<ResourceModel> Resources { get; set; }
+        public virtual ICollection<ProductModel> Products { get; set; }
 
     }
 }

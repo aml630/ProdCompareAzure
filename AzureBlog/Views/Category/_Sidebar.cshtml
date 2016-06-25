@@ -1,16 +1,9 @@
 ﻿@model IEnumerable<AzureBlog.Models.CategoryModel>
-     @if (User.IsInRole("Admin"))
-     {
-         <button class="testButton btn btn-danger">Discuss Products</button>
-     }
 
 
 
 @foreach (var category in Model)
 {
-
-
-
 
 
     <div class="col-sm-3 scrollParent">
@@ -25,6 +18,27 @@
                 @*<span class="tweetNumber">@category.TwitShares</span>*@
             </a>
         </form>
+       
+        @if (User.IsInRole("Admin"))
+                {
+            <hr />
+            <hr />
+            <hr />
+
+            <h1>Add product</h1>
+            <form action="~/Default/Category/AddProduct">
+                <input name="catId" hidden value="@category.CategoryId" />
+                <input name="catSlug" hidden value="@category.CategorySlug" />
+
+                <hr />
+
+                <input name="ASIN" placeholder="ASIN" />
+                <hr />
+
+
+                <button>Add Product</button>
+            </form>
+        }
 
         <div class="productParent scrollChild">
 
@@ -92,9 +106,13 @@
                     <button class="next btn btn-block">Next</button>
                     <button class="btn btn-block prev">Previous</button>
                 </div>
+
+                
             }
 
         </div>
+
+      
       
     </div>
 

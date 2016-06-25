@@ -24,6 +24,12 @@ namespace AzureBlog
        );
 
             routes.MapRoute(
+     name: "Post",
+     url: "Post/{articleSlug}",
+     defaults: new { controller = "Article", action = "Post" }
+ //constraints: new {id = @"([a-z]+-?)+" }
+ );
+            routes.MapRoute(
       name: "CatIndex",
       url: "Category/Index",
       defaults: new { controller = "Home", action = "Index" }
@@ -67,6 +73,7 @@ namespace AzureBlog
                defaults: new { controller = "Category", action = "Index" }
                //constraints: new {id = @"([a-z]+-?)+" }
            );
+   
 
             routes.MapRoute(
             name: "newDefault",

@@ -14,7 +14,7 @@ namespace AzureBlog.Controllers
         public ActionResult Index()
         {
             var catList = db.Categories.ToList();
-
+            ViewBag.Articles = db.Articles.ToList();
             return View(catList);
         }
         public ActionResult About()

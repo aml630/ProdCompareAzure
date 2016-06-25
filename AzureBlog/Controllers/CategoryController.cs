@@ -5,8 +5,13 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
-
+using RestSharp;
+using RestSharp.Authenticators;
+using Nager.AmazonProductAdvertising.Model;
+using Nager.AmazonProductAdvertising;
+using NKCraddock.AmazonItemLookup.Client;
+using System.Xml;
+using Newtonsoft.Json;
 
 namespace AzureBlog.Controllers
 {
@@ -45,7 +50,6 @@ namespace AzureBlog.Controllers
             var clickedCategory = db.Categories.Where(x => x.CategoryId == id).Include(category => category.Products).Include(category=>category.Segments).ToList();
             return View("Index", clickedCategory);
         }
-        [ValidateInput(false)]
         public ActionResult AddSegment(int id, string Title, string Body, string Par2, string Par3, string Image, string Video)
         {
             var newSegment = new SegmentModel();
@@ -114,6 +118,42 @@ namespace AzureBlog.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult VotePost()
+        {
+            return View();
+        }
+
+        public ActionResult AddProduct(int catId, string ASIN, string catSlug)
+        {
+            
+       
+
+            var authentication = new AmazonAuthentication();
+            authentication.AccessKey = "test";
+            authentication.SecretKey = "test";
+
+            var wrapper = new AmazonWrapper(authentication, AmazonEndpoint.US, "alexl0a-20");
+            var result = wrapper.Lookup(ASIN);
+
+            var newProduct = new ProductModel();
+            newProduct.ProductName = result.Items.Item[0].ItemAttributes.Title;
+            newProduct.ProductSlug = "hey";
+            newProduct.ProductImg = result.Items.Item[0].LargeImage.URL;
+            newProduct.ProductLink = result.Items.Item[0].DetailPageURL;
+            newProduct.ProductPrice = 0;
+            newProduct.ProductDescription = "";
+            newProduct.ProductArticle = false;
+            newProduct.CategoryId = catId;
+
+            db.Products.Add(newProduct);
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index", "Category", new { id = catSlug });
+        }
 
     }
 }
+
+
+

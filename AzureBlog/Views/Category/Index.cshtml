@@ -5,7 +5,8 @@
 {
     <title>@category.CategoryName Comparison</title>
 
-    if (category.CategoryArticle == true)
+    if (category.CategoryArticle == true ||(User.IsInRole("Admin"))
+)
     {
         <div class="row">
             <div class="col-sm-9 mainContainer">
