@@ -14,7 +14,6 @@
     bottom: 0;
     left: 0;
     right: 0;
-
     margin: auto;
     margin-top: 20px;
     padding-bottom: 24px;
@@ -119,9 +118,9 @@
 }
 
 .scrollChild {
-position: fixed;
+/*position: fixed;*/
 max-width: 300px;
-margin-top: 80px;
+/*margin-top: 80px;*/
 }
 
 .next {
@@ -146,9 +145,10 @@ margin-top: 80px;
   padding: 11px;
     margin-top: 10px; 
     background-color: #F8F8F8 ;
-    min-height: 700px;
-    height: auto;
+    min-height: 280px;
+    height: 200px;
     width: 300px;
+    /*display: none;*/
 }
 
 .active {

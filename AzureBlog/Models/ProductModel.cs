@@ -21,11 +21,13 @@ namespace AzureBlog.Models
             public string ProductSlug { get; set; }
             public string ProductImg { get; set; }
             public string ProductLink { get; set; }
-            public int ProductPrice { get; set; }
+            public double ProductPrice { get; set; }
             public string ProductDescription { get; set; }
             public bool ProductArticle { get; set; }
             public int CategoryId { get; set; }
             public virtual CategoryModel Category { get; set; }
+            public int ArticleId { get; set; }
+
 
         public virtual ICollection<ReviewModel> Reviews { get; set; }
 

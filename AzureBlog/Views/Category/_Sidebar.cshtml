@@ -9,15 +9,7 @@
     <div class="col-sm-3 scrollParent">
 
 
-        <form class="tweet">
-            @*<input hidden class="id" name="id" value="@category.CategoryId" />*@
-            @*onclick="$(this).closest('form').submit()"*@ 
-
-           <a target="_blank" class="discuss twitter-share-button btn btn-primary btn-lg outline" href="https://twitter.com/intent/tweet?text= Tons of great information about @category.CategoryName http://www.buybabble.com/@category.CategorySlug" data-size="large" data-url="http://www.buybabble.com/@category.CategorySlug">
-                <img src="https://cdn0.iconfinder.com/data/icons/social-icons-20/200/Twitter-icon-128.png" height="50" wdith="50">
-                @*<span class="tweetNumber">@category.TwitShares</span>*@
-            </a>
-        </form>
+        @*@Html.Partial("_Tweet")*@
        
         @if (User.IsInRole("Admin"))
                 {
@@ -25,19 +17,8 @@
             <hr />
             <hr />
 
-            <h1>Add product</h1>
-            <form action="~/Default/Category/AddProduct">
-                <input name="catId" hidden value="@category.CategoryId" />
-                <input name="catSlug" hidden value="@category.CategorySlug" />
+            @Html.Partial("_AddProduct")
 
-                <hr />
-
-                <input name="ASIN" placeholder="ASIN" />
-                <hr />
-
-
-                <button>Add Product</button>
-            </form>
         }
 
         <div class="productParent scrollChild">
@@ -51,14 +32,16 @@
                     <div class="childRow">
                         <a href="@product.ProductLink"><img class="subCatPicSmall" src="@product.ProductImg" /></a>
 
+                        <p>@product.ProductPrice</p>
+                    </div>
 
-</div>
-
-                    <button class="showReview btn btn-block">
+                    @*<button class="showReview btn btn-block">
                      <span class="glyphicon glyphicon-star">
                         </span>
                         Leave Review
-                        </button>
+                        </button>*@
+
+                    <iframe src="@product.ProductDescription"></iframe>
 
 
      
@@ -87,7 +70,7 @@
                         <button class="btn btn-info">Post Review!</button>
 
                     </form>
-                    <div class="allReviews">
+                    @*<div class="allReviews">
                         @foreach (var review in @ViewBag.Reviews)
                     {
                         if (review.ProductId == product.ProductId)
@@ -101,10 +84,9 @@
                                 </div>
                             }
                         }
-                    </div>
+                    </div>*@
 
-                    <button class="next btn btn-block">Next</button>
-                    <button class="btn btn-block prev">Previous</button>
+                   
                 </div>
 
                 

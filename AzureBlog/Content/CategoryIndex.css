@@ -1,6 +1,4 @@
-﻿.individualProduct {
-    display: none;
-}
+﻿
 
 
 .my-container {
@@ -80,7 +78,7 @@
     background-color: #F8F8F8;
 }
 
-.greyBox img {
+.categoryImg {
   
     width: 80%;
     height: 200px;

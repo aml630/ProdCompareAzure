@@ -27,6 +27,8 @@ namespace AzureBlog.Models
         public string ArticleSegmentImage { get; set; }
         public string ArticleSegmentVideo { get; set; }
 
+        public int Votes { get; set; }
+
         public int ArticleId { get; set; }
 
         public virtual ArticleModel Article { get; set; }

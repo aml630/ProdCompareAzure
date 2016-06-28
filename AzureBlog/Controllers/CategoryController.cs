@@ -129,25 +129,29 @@ namespace AzureBlog.Controllers
        
 
             var authentication = new AmazonAuthentication();
-            authentication.AccessKey = "test";
-            authentication.SecretKey = "test";
+            authentication.AccessKey = "AKIAICYKGU63S3DNQMZQ";
+            authentication.SecretKey = "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";
 
             var wrapper = new AmazonWrapper(authentication, AmazonEndpoint.US, "alexl0a-20");
             var result = wrapper.Lookup(ASIN);
+
+            var changeNum = Double.Parse(String.Format("{0,0:N2}", Int32.Parse(result.Items.Item[0].OfferSummary.LowestNewPrice.Amount) / 100.0));
 
             var newProduct = new ProductModel();
             newProduct.ProductName = result.Items.Item[0].ItemAttributes.Title;
             newProduct.ProductSlug = "hey";
             newProduct.ProductImg = result.Items.Item[0].LargeImage.URL;
             newProduct.ProductLink = result.Items.Item[0].DetailPageURL;
-            newProduct.ProductPrice = 0;
-            newProduct.ProductDescription = "";
+            newProduct.ProductPrice = changeNum;
+            newProduct.ProductDescription = result.Items.Item[0].CustomerReviews.IFrameURL;
             newProduct.ProductArticle = false;
             newProduct.CategoryId = catId;
 
             db.Products.Add(newProduct);
 
             db.SaveChanges();
+
+           
 
             return RedirectToAction("Index", "Category", new { id = catSlug });
         }

@@ -4,44 +4,123 @@
     ViewBag.Title = "Article";
 }
 
-<h2>Article</h2>
 
-@foreach(var article in Model)
-{
-   <h1>Blog Title:  @article.ArticleName</h1>
 
-    foreach(var segment in article.ArticleSegments)
+    @foreach (var article in Model)
     {
-        <p>Segment:  @segment.ArticleSegmentTitle</p>
+
+        <h2>Article</h2>
+        <div class="my-container">
+            <h1>@article.ArticleName</h1>
+        </div>
+
+        <div class="tableOfContents">
+
+            @foreach (var title in article.ArticleSegments)
+
+            {
+                <a href="#@title.ArticleSegmentTitle">@title.ArticleSegmentTitle</a>
+                foreach (var product in ViewBag.Products)
+                {
+                    if (product.ArticleId == title.ArticleSegmentId)
+                    {
+                        <img src="@product.ProductImg" height="50" width="50" />
+
+                    }
+
+                }
+            }
+        </div>
+
+        foreach (var segment in article.ArticleSegments.OrderByDescending(x=>x.Votes))
+        {
+
+
+
+
+            <div class="greyBox">
+
+                <form action="~/Default/Article/Upvote">
+                    <input name="segId"  hidden value="@segment.ArticleSegmentId" />
+                    <input name="artSlug" hidden value="@article.ArticleSlug" />
+                    <button><img src="https://cdn2.iconfinder.com/data/icons/playstation-controller-buttons-3/64/playstation-flat-icon-triangle-dark-128.png" /></button>
+                </form>
+                <p>SegVotes:  @segment.Votes</p>
+
+
+                <p>SegTitle:  @segment.ArticleSegmentTitle</p>
+                <p>Intro:  @segment.ArticleSegmentPar1</p>
+
+                <button class="showProducts btn btn-block">Get this stuff!</button>
+                <div class="segmentProducts">
+                @foreach (var product in ViewBag.Products)
+                {
+                if (product.ArticleId == segment.ArticleSegmentId)
+                {
+               <img class="segmentImgs" src="@product.ProductImg" height="30" width="30" />
+                <a href="@product.ProductLink"><h2>@product.ProductName</h2></a>
+
+
+                }
+
+
+                }
+
+                </div>
+            </div>
+
+         
+
+
+            if (User.IsInRole("Admin"))
+            {
+                <h1>Add product</h1>
+                <form action="~/Default/Article/AddProduct">
+                    <input name="segId" hidden value="@segment.ArticleSegmentId" />
+                    <input name="artSlug" hidden value="@article.ArticleSlug" />
+
+                    <hr />
+
+                    <input name="ASIN" placeholder="ASIN" />
+                    <hr />
+
+
+                    <button>Add Product</button>
+                </form>
+
+            }
+        }
+
+
+        if (User.IsInRole("Admin"))
+        {
+            <h2>Add New Segment</h2>
+            <form class="addArticle" action="~/Default/Article/AddSegment">
+                <input name="id" hidden value="@article.ArticleId" />
+                <input name="ArticleSlug" hidden value="@article.ArticleSlug" />
+
+                <hr />
+
+                <input name="Title" value="Lorum" placeholder="Segment Title" />
+                <hr />
+                <textarea name="Body" value="Lorum" placeholder="Segment Body"></textarea>
+                <hr />
+                <textarea name="Par2" value="Lorum" placeholder="Optional Par2"></textarea>
+                <hr />
+                <textarea name="Par3" value="Lorum" placeholder="Optional Par3"></textarea>
+                <hr />
+
+
+                <input name="Image" value="Lorum" placeholder="Optional Image" />
+                <hr />
+
+                <input name="Video" value="Lorum" placeholder="Optional Video" />
+
+                <hr />
+                <button>Add Seg</button>
+            </form>
+        }
+
+
     }
-
-
-
-<h2>Add New Segment</h2>
-<form class="addArticle" action="~/Default/Article/AddSegment">
-    <input name="id" hidden value="@article.ArticleId" />
-    <input name="ArticleSlug" hidden value="@article.ArticleSlug" />
-
-    <hr />
-
-    <input name="Title" value="Lorum" placeholder="Segment Title" />
-    <hr />
-    <textarea name="Body" value="Lorum" placeholder="Segment Body"></textarea>
-    <hr />
-    <textarea name="Par2" value="Lorum" placeholder="Optional Par2"></textarea>
-    <hr />
-    <textarea name="Par3" value="Lorum" placeholder="Optional Par3"></textarea>
-    <hr />
-
-
-    <input name="Image" value="Lorum" placeholder="Optional Image" />
-    <hr />
-
-    <input name="Video" value="Lorum" placeholder="Optional Video" />
-
-    <hr />
-    <button>Add Seg</button>
-</form>
-
-}
 

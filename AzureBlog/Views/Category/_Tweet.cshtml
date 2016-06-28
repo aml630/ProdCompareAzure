@@ -1,0 +1,16 @@
+﻿
+@foreach (var category in Model)
+{
+
+
+    <form class="tweet">
+        @*<input hidden class="id" name="id" value="@category.CategoryId" />*@
+        @*onclick="$(this).closest('form').submit()"*@
+
+        <a target="_blank" class="discuss twitter-share-button btn btn-primary btn-lg outline" href="https://twitter.com/intent/tweet?text= Tons of great information about @category.CategoryName http://www.buybabble.com/@category.CategorySlug" data-size="large" data-url="http://www.buybabble.com/@category.CategorySlug">
+            <img src="https://cdn0.iconfinder.com/data/icons/social-icons-20/200/Twitter-icon-128.png" height="50" wdith="50">
+            @*<span class="tweetNumber">@category.TwitShares</span>*@
+        </a>
+    </form>
+
+}

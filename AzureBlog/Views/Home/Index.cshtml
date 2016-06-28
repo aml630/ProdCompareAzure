@@ -16,6 +16,8 @@
             <div class="section1">
                 <h2>@category.CategoryName</h2>
             </div>
+
+
             <div class="section2">
                 <img class="subCatPic" src="@category.CategoryPic">
             </div>
@@ -59,7 +61,14 @@
    
 
 </div>
-@*@if (User.IsInRole("Admin"))
+
+ @foreach(var article in @ViewBag.Articles)
+        {
+<a href="~/Post/@article.ArticleSlug">@article.ArticleName</a>
+        }
+
+
+@if (User.IsInRole("Admin"))
 {
     <h3>New Article!</h3>
         <form action="~/Default/Article/CreateArticle">
@@ -68,13 +77,9 @@
             <button>MakeIt</button>
         </form>
 
-        foreach(var article in @ViewBag.Articles)
-        {
-            <a href="~/Post/@article.ArticleSlug">@article.ArticleName</a>
-        }
 
 
-}*@
+}
 <script src="/Scripts/three.min.js"></script>
 <script src="/Scripts/Projector.js"></script>
 <script src="/Scripts/CanvasRenderer.js"></script>

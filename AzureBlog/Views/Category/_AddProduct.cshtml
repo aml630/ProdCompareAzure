@@ -1,0 +1,17 @@
+﻿@foreach (var category in Model)
+{
+<h1>Add product</h1>
+<form action="~/Default/Category/AddProduct">
+    <input name="catId" hidden value="@category.CategoryId" />
+    <input name="catSlug" hidden value="@category.CategorySlug" />
+
+    <hr />
+
+    <input name="ASIN" placeholder="ASIN" />
+    <hr />
+
+
+    <button>Add Product</button>
+</form>
+
+}

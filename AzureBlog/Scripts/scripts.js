@@ -53,9 +53,9 @@ $('.prev').click(function () {
 });
 window.onload = next(1);
 
-var myInter = setInterval(function myInterval () {
-    next(1);
-}, 5000);
+//var myInter = setInterval(function myInterval () {
+//    next(1);
+//}, 5000);
 
 
 $('.showReview').click(function () {
@@ -91,3 +91,8 @@ $('.tweet').submit(function (event) {
 
     console.log("endTweet!");
 });
+
+
+$(".showProducts").click(function () {
+    $(".segmentProducts").fadeToggle("slow");
+})
