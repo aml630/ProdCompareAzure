@@ -20,7 +20,10 @@ namespace AzureBlog.Controllers
 
             var article = db.Articles.Where(x => x.ArticleSlug == articleSlug).Include(x => x.ArticleSegments).ToList();
 
-            ViewBag.Products = db.Products.ToList();
+            List<ProductModel> sortedProducts = db.Products.OrderByDescending(x => x.ProductPrice).ToList();
+
+            ViewBag.Products = sortedProducts;
+            ViewBag.First = sortedProducts.First();
 
             return View(article);
         }

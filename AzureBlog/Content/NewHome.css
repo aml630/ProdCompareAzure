@@ -1,0 +1,14 @@
+﻿
+
+.articleParent {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #d1d1d1;
+    box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
+  align-self:  flex-start;
+  padding: 11px;
+    margin-top: 10px;
+      text-align: center;
+background-color: #F8F8F8 ;
+background-size: 200px 200px;
+}

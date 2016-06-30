@@ -3,6 +3,71 @@
 }
 
 .segmentImgs {
-    height: 30px;
-    width: 30px;
+    height: 50px;
+    width: 50px;
+    float: left;
+    border: 3px solid #d1d1d1;
+    box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
+    border-radius: 50%;
+    margin-right: 30px;
+
+}
+
+.tblImgs {
+    height: 50px;
+    width: 50px;
+    /*float: left;*/
+    border: 3px solid #d1d1d1;
+    box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
+    border-radius: 50%;
+    margin-right: -10px;
+
+
+}
+
+.upvote {
+    float: left;
+
+}
+.upvote img {
+    height: 40px;
+    width:40px;
+}
+
+.segTitle {
+    font-size: 30px;
+    text-align: center;
+}
+
+.productRow {
+    display: flex;
+    /*justify-content: space-around;*/
+}
+
+.itemPrice {
+    width: 70px;
+    height: 50px;
+    margin-right: 60px;
+}
+
+.verticalAlign {
+
+}
+
+.holderdiv {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.voteNum {
+    border: 3px solid white;
+    border-radius: 100px;
+    margin: 5px;
+    padding: 3px;
+}
+
+.likeButton {
+   border: 3px solid #d1d1d1;
+    box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
 }

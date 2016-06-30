@@ -1,72 +1,23 @@
 ﻿
 @model IEnumerable<AzureBlog.Models.CategoryModel>
-<div id="Birds" class="jumbotron">
-    <h1>BuyBabble</h1>
-    <p>Only Buy Products You Know You'll Love</p>
-</div>
 
 <div class="subCatParent">
     
-    @foreach (var category in Model)
+   
+    @foreach (var article in @ViewBag.Articles)
     {
 
-        if (User.IsInRole("Admin"))
-        { 
-        <a href="~/@category.CategorySlug" class="product-box">
-            <div class="section1">
-                <h2>@category.CategoryName</h2>
-            </div>
-
-
-            <div class="section2">
-                <img class="subCatPic" src="@category.CategoryPic">
-            </div>
-            @if (category.CategoryArticle == true)
-            {
-                <form action="~/Default/Category/Unpublish">
-                    <input name="catId" hidden value="@category.CategoryId" />
-                    <input type="submit" class="btn btn-danger" value="UnPublish">
-                </form>
-            }
-            @if (category.CategoryArticle == false)
-            {
-                <form action="~/Default/Category/Publish">
-                    <input name="catId" hidden value="@category.CategoryId" />
-                    <input type="submit" class="btn btn-success" value="Publish">
-                </form>
-            }
+        <a style="background-image:url('@article.ArticlePic');" class="articleParent" href="~/Post/@article.ArticleSlug">
+        <p>@article.ArticleName</p>
         </a>
-       
-        }
-        else
-        {
-
-            if (category.CategoryArticle == true)
-            {
-                <a href="~/@category.CategorySlug" class="product-box">
-                    <div class="section1">
-                        <h2>@category.CategoryName</h2>
-                    </div>
-                    <div class="section2">
-                        <img class="subCatPic" src="@category.CategoryPic">
-                    </div>
-
-                </a>
-            }
-        }
-
-
     }
+
 
    
 
 </div>
 
- @foreach(var article in @ViewBag.Articles)
-        {
-<a href="~/Post/@article.ArticleSlug">@article.ArticleName</a>
-        }
-
+ 
 
 @if (User.IsInRole("Admin"))
 {
@@ -80,10 +31,4 @@
 
 
 }
-<script src="/Scripts/three.min.js"></script>
-<script src="/Scripts/Projector.js"></script>
-<script src="/Scripts/CanvasRenderer.js"></script>
-<script src="/Scripts/Detector.js"></script>
-<script src="/Scripts/stats.min.js"></script>
-<script src="/Scripts/Bird.js"></script>
-<script src="~/Scripts/BirdBackGround.js"></script>
+

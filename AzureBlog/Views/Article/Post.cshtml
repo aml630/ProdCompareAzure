@@ -5,95 +5,141 @@
 }
 
 
-
-    @foreach (var article in Model)
-    {
-
-        <h2>Article</h2>
+@foreach (var article in Model)
+{
         <div class="my-container">
             <h1>@article.ArticleName</h1>
+            <img class="articlePic" src="@article.ArticlePic" />
         </div>
 
-        <div class="tableOfContents">
+        <div class="greyBox">
+            <div class="alignCenter">
+                <p class="tblContents">Table of contents</p>
+            </div>
+            <hr />
+            <div class="tableOfContents">
+                    @foreach (var title in article.ArticleSegments)
 
-            @foreach (var title in article.ArticleSegments)
-
-            {
-                <a href="#@title.ArticleSegmentTitle">@title.ArticleSegmentTitle</a>
-                foreach (var product in ViewBag.Products)
-                {
-                    if (product.ArticleId == title.ArticleSegmentId)
                     {
-                        <img src="@product.ProductImg" height="50" width="50" />
+                        <div class="holderDiv">
+
+                            @foreach (var product in ViewBag.Products)
+                            {
+                            if (product.ArticleId == title.ArticleSegmentId)
+                            {
+                            <img class="tblImgs" src="@product.ProductImg" height="50" width="50" />
+                            break;
+                            }
+
+                            }
+                            <a class ="verticalAlign" href="#@title.ArticleSegmentTitle">@title.ArticleSegmentTitle</a>
+                        </div>
 
                     }
+                        </div>
+           </div>
 
-                }
-            }
-        </div>
-
-        foreach (var segment in article.ArticleSegments.OrderByDescending(x=>x.Votes))
-        {
+            foreach (var segment in article.ArticleSegments.OrderByDescending(x=>x.Votes))
+            {
 
 
 
 
             <div class="greyBox">
 
-                <form action="~/Default/Article/Upvote">
-                    <input name="segId"  hidden value="@segment.ArticleSegmentId" />
+                <form class="upvote" action="~/Default/Article/Upvote">
+                    <input name="segId" hidden value="@segment.ArticleSegmentId" />
                     <input name="artSlug" hidden value="@article.ArticleSlug" />
-                    <button><img src="https://cdn2.iconfinder.com/data/icons/playstation-controller-buttons-3/64/playstation-flat-icon-triangle-dark-128.png" /></button>
+                    <button class="btn btn-success btn-sm">
+                       <span>Like!</span><span class="voteNum">@segment.Votes</span>
+                    </button>
+
                 </form>
-                <p>SegVotes:  @segment.Votes</p>
+
+                <p id="@segment.ArticleSegmentTitle" class="segTitle">SegTitle:  @segment.ArticleSegmentTitle</p>
+                <p>
+                    Intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat et sem non ultrices. Nulla hendrerit nisi lacus, eget mattis justo dignissim eget. Sed cursus, tortor sed lacinia tempor, risus quam blandit augue, in ultrices ante nulla ut elit. Aliquam erat volutpat. Curabitur posuere tincidunt lacus ut accumsan. Aenean ac nisi et metus vestibulum scelerisque in at nisi. Aenean lorem purus, iaculis nec est in, dictum sagittis tortor. Nunc eget dui in neque eleifend sagittis.
+
+                    Curabitur viverra rhoncus tellus. Duis non condimentum lacus. Aliquam id feugiat mauris, sit amet varius metus. Sed fringilla mattis nibh, nec viverra tellus consectetur ut. Integer et libero viverra nibh elementum cursus. Nulla et vestibulum est, ac consectetur erat. Pellentesque rutrum turpis et magna tempus maximus. Curabitur aliquam scelerisque scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse efficitur ultrices diam eget aliquet. Nam sed massa magna.
+
+                    Suspendisse dolor ipsum, viverra non risus in, vehicula tristique turpis. Donec at condimentum metus, ac porta erat. Praesent convallis maximus diam, eget pellentesque dolor posuere ut. Donec ultrices, leo at rutrum iaculis, ante mauris venenatis dui, et pharetra enim tortor quis eros. Maecenas risus ligula, varius nec rhoncus accumsan, condimentum in ipsum. Curabitur gravida dignissim mi, quis convallis turpis placerat in. Aenean ullamcorper vehicula est, et malesuada lorem bibendum id. Quisque malesuada nisi et ex faucibus elementum. Sed tincidunt gravida tellus, vitae dictum ex pharetra at. Fusce dictum sem erat, in ultrices nisi maximus non. Nunc sit amet urna non velit pellentesque fermentum.
+
+                    Generated 3 paragraphs, 246 words, 1681 bytes of Lorem
+                 
+                </p>
+
+                @foreach (var firstProduct in ViewBag.Products)
+                {
+                    if (firstProduct.ArticleId == segment.ArticleSegmentId)
+                    {
+                    <div class="showProducts btn  btn-default btn-block">
+                        <div class="productRow">
+                            <a href="@firstProduct.ProductLink"><img class="segmentImgs" src="@firstProduct.ProductImg" height="30" width="30" /></a>
+                            <a href="@firstProduct.ProductLink" class="itemPrice">
+                                <p class="btn btn-info">$@firstProduct.ProductPrice</p>
+                            </a>
+                            <a href="@firstProduct.ProductLink"><p class="btn btn-success">@firstProduct.ProductName</p></a>
+
+                        </div>
+                    </div>
+                        break;
 
 
-                <p>SegTitle:  @segment.ArticleSegmentTitle</p>
-                <p>Intro:  @segment.ArticleSegmentPar1</p>
+                    }
+                }
 
-                <button class="showProducts btn btn-block">Get this stuff!</button>
+               
+
+
+
                 <div class="segmentProducts">
-                @foreach (var product in ViewBag.Products)
-                {
-                if (product.ArticleId == segment.ArticleSegmentId)
-                {
-               <img class="segmentImgs" src="@product.ProductImg" height="30" width="30" />
-                <a href="@product.ProductLink"><h2>@product.ProductName</h2></a>
+                    @foreach (var product in ViewBag.Products)
+                    {
+                        if (product.ArticleId == segment.ArticleSegmentId)
+                        {
+
+                            <div class="productRow">
+                                <a href="@product.ProductLink"><img class="segmentImgs" src="@product.ProductImg" height="30" width="30" /></a>
+                                <a href="@product.ProductLink" class="itemPrice">
+                                    <p class="btn btn-info">$@product.ProductPrice</p>
+                                </a>
+                                <a href="@product.ProductLink"><p class="btn btn-success">@product.ProductName</p></a>
 
 
-                }
+                            </div>
 
+                        }
 
-                }
+                    }
 
                 </div>
             </div>
 
-         
+
 
 
             if (User.IsInRole("Admin"))
             {
-                <h1>Add product</h1>
-                <form action="~/Default/Article/AddProduct">
-                    <input name="segId" hidden value="@segment.ArticleSegmentId" />
-                    <input name="artSlug" hidden value="@article.ArticleSlug" />
+            <h1>Add product</h1>
+            <form action="~/Default/Article/AddProduct">
+                <input name="segId" hidden value="@segment.ArticleSegmentId" />
+                <input name="artSlug" hidden value="@article.ArticleSlug" />
 
-                    <hr />
+                <hr />
 
-                    <input name="ASIN" placeholder="ASIN" />
-                    <hr />
+                <input name="ASIN" placeholder="ASIN" />
+                <hr />
 
 
-                    <button>Add Product</button>
-                </form>
+                <button>Add Product</button>
+            </form>
 
             }
-        }
+            }
 
 
-        if (User.IsInRole("Admin"))
-        {
+            if (User.IsInRole("Admin"))
+            {
             <h2>Add New Segment</h2>
             <form class="addArticle" action="~/Default/Article/AddSegment">
                 <input name="id" hidden value="@article.ArticleId" />
@@ -119,8 +165,8 @@
                 <hr />
                 <button>Add Seg</button>
             </form>
-        }
+            }
 
 
-    }
+            }
 
